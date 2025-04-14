@@ -20,7 +20,7 @@ const Home = () => {
   return (
     <div
       key={currentSlideIndex}
-      className="h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
+      className="h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat z-10"
       style={{
         backgroundImage: `url(${HomeSlidesData[currentSlideIndex].background})`,
         animation: "fadeIn 5s",
