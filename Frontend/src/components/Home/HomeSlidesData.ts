@@ -1,9 +1,9 @@
-import bg1 from "../../Images/bg1.jpg";
-import bg2 from "../../Images/bg2.jpg";
-import bg3 from "../../Images/bg3.jpg";
-import bg4 from "../../Images/bg4.jpg";
-import bg5 from "../../Images/bg5.jpg";
-import bg6 from "../../Images/bg6.jpg";
+import istanbulImage from "../../Images/istanbul.jpg";
+import parisImage from "../../Images/paris.jpg";
+import berlinImage from "../../Images/berlin.jpg";
+import rioImage from "../../Images/rio.jpg";
+import milanImage from "../../Images/milan.jpg";
+import brusselImage from "../../Images/brussel.jpg";
 
 type Slide = {
   background: string;
@@ -14,39 +14,39 @@ type Slide = {
 
 export const HomeSlidesData: Slide[] = [
   {
-    background: bg1,
-    heading: "Start Your Journey Of Discovery In Istanbul,",
-    subheading: "Where Others Have Ventured Before You",
+    background: istanbulImage,
+    heading: "Explore Istanbul’s Timeless Beauty",
+    subheading: "Where East Meets West in Harmony",
     buttonText: "ICONIC PLACES",
   },
   {
-    background: bg2,
-    heading: "Escape To Istanbul,",
-    subheading: "Your Dream Destination Brought To Life.",
+    background: parisImage,
+    heading: "Wander Through the Romance of Paris",
+    subheading: "Let the City of Lights Inspire You",
     buttonText: "ICONIC PLACES",
   },
   {
-    background: bg3,
-    heading: "Help Others Uncover New Places In Istanbul,",
-    subheading: "Making Their Exploration More Remarkable",
+    background: berlinImage,
+    heading: "Feel the Pulse of Berlin",
+    subheading: "A City of Culture, History, and Innovation",
     buttonText: "ICONIC PLACES",
   },
   {
-    background: bg4,
-    heading: "Unearth The Captivating Sights Of Istanbul,",
-    subheading: "Cherished By All Who Venture There",
+    background: rioImage,
+    heading: "Experience the Energy of Rio de Janeiro",
+    subheading: "Where Nature, Music, and Spirit Unite",
     buttonText: "ICONIC PLACES",
   },
   {
-    background: bg5,
-    heading: "Discover Unique Views In Istanbul,",
-    subheading: "Where The Eastern and Western Cultures Awaits",
+    background: milanImage,
+    heading: "Indulge in the Style of Milan",
+    subheading: "A Global Hub for Fashion and Art",
     buttonText: "ICONIC PLACES",
   },
   {
-    background: bg6,
-    heading: "Remember To Capture The Mesmerizing Moments,",
-    subheading: "And Share Them On Our Website",
+    background: brusselImage,
+    heading: "Discover the Charm of Brussels",
+    subheading: "Where Old-World Elegance Meets Modern Life",
     buttonText: "ICONIC PLACES",
   },
 ];
