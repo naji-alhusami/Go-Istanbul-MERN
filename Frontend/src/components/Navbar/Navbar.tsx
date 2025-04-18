@@ -15,7 +15,7 @@ function Navbar() {
   }
 
   return (
-    <nav className="bg-white z-30 top-0 w-full px-12 sticky shadow-lg flex flex-row justify-between items-center">
+    <nav className="sticky bg-white z-30 top-0 w-full px-12 shadow-lg flex flex-row justify-between items-center">
       <div className="text-center md:text-left p-2">
         <h1
           onClick={() => navigate("/")}
@@ -76,7 +76,9 @@ function Navbar() {
       </section>
 
       {/* Middle and Small Screens */}
-      {showSideNavbar && <ResponsiveNavbar toggleButtonHandler={toggleButtonHandler} />}
+      {showSideNavbar && (
+        <ResponsiveNavbar toggleButtonHandler={toggleButtonHandler} />
+      )}
     </nav>
   );
 }
