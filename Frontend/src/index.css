@@ -5,3 +5,15 @@
   font-weight: 400;
   font-style: normal;
 }
+
+@layer components {
+  .change .line1 {
+    @apply translate-y-[10px] -rotate-45;
+  }
+  .change .line2 {
+    @apply opacity-0;
+  }
+  .change .line3 {
+    @apply -translate-y-[10px] rotate-45;
+  }
+}

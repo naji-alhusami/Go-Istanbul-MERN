@@ -12,7 +12,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className=" font-poppins flex flex-row items-center justify-center sm:flex sm:flex-row sm:items-center sm:justify-between bg-white sm:px-4">
+    <footer className=" font-poppins flex flex-row items-center justify-between sm:flex sm:flex-row sm:items-center sm:justify-between bg-white px-12">
       <div className="m-2">
         <Link to="/">
           <motion.div
