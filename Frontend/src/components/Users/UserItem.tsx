@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 type UserProps = {
   id: string;
   name: string;
@@ -7,8 +9,8 @@ type UserProps = {
 
 function UserItem({ id, name, image, placesNumber }: UserProps) {
   return (
-    <li className="w-full m-5 p-5 rounded-md bg-purple-500 ">
-      <div>
+    <div className="rounded-md bg-gray-400 hover:bg-purple-500 p-4">
+      <Link to={`/${id}/places`}>
         <div>
           <img src={image} alt={id} />
         </div>
@@ -18,8 +20,8 @@ function UserItem({ id, name, image, placesNumber }: UserProps) {
             {placesNumber} {placesNumber === 1 ? "Place" : "Places"}
           </h2>
         </div>
-      </div>
-    </li>
+      </Link>
+    </div>
   );
 }
 

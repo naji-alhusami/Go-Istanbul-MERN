@@ -21,6 +21,30 @@ function AllUsers() {
       image: "s",
       places: 2,
     },
+    {
+      id: "u3",
+      name: "Naji",
+      image: "s",
+      places: 2,
+    },
+    {
+      id: "u4",
+      name: "Naji",
+      image: "s",
+      places: 2,
+    },
+    {
+      id: "u5",
+      name: "Naji",
+      image: "s",
+      places: 2,
+    },
+    // {
+    //   id: "u6",
+    //   name: "Naji",
+    //   image: "s",
+    //   places: 2,
+    // },
   ];
 
   if (USERS.length === 0) {
@@ -28,18 +52,17 @@ function AllUsers() {
   }
 
   return (
-    <ul className="m-5 flex flex-col justify-center items-center sm:flex sm:flex-row">
-      {USERS.map((user) => {
-        return (
+    <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      {USERS.map((user) => (
+        <li key={user.id}>
           <UserItem
-            key={user.id}
             id={user.id}
             image={user.image}
             name={user.name}
             placesNumber={user.places}
           />
-        );
-      })}
+        </li>
+      ))}
     </ul>
   );
 }
