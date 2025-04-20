@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
 import Footer from "./components/Footer/Footer";
 import AllUsers from "./components/Users/AllUsers";
+import AllPlaces from "./components/Places/AllPlaces";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/users" element={<AllUsers />} />
+        <Route path="/:userId/places" element={<AllPlaces />} />
       </Routes>
       <Footer />
     </BrowserRouter>
