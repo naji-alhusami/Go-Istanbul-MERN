@@ -18,8 +18,8 @@ function Navbar() {
   return (
     <>
       {showSideNavbar && <Backdrop onClick={toggleButtonHandler} />}
-      <nav className="sticky bg-white z-30 top-0 w-full px-12 shadow-lg flex flex-row justify-between items-center">
-        <div className="text-center md:text-left p-2">
+      <nav className="sticky bg-white z-30 top-0 w-full px-4 shadow-lg flex flex-row justify-between items-center">
+        <div className="text-center md:text-left py-2">
           <h1
             onClick={() => navigate("/")}
             className="poetsen-one-regular text-purple-900 text-2xl sm:text-4xl"
@@ -67,7 +67,7 @@ function Navbar() {
             </Button>
           </div>
           <div
-            className={`relative inline-block cursor-pointer m-[0.3rem_0_0_1rem] p-2 bg-white rounded-full z-20 md:hidden ${
+            className={`relative inline-block cursor-pointer m-[0.3rem_0_0_1rem] py-2 bg-white rounded-full z-20 md:hidden ${
               isToggled ? "change" : ""
             }`}
             onClick={toggleButtonHandler}

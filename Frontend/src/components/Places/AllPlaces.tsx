@@ -1,5 +1,7 @@
 import { useParams } from "react-router-dom";
 import PlacesItem from "./PlaceItem";
+import istanbulImg from "../../Images/istanbul.jpg";
+// import bg from "../../Images/dragon-scales.svg";
 
 type PlaceData = {
   id: string;
@@ -20,7 +22,19 @@ function AllPlaces() {
       id: "p1",
       title: "aaa",
       description: "aaa",
-      imageUrl: "s",
+      imageUrl: istanbulImg,
+      address: "10 W 34th St, New Work, NY 10001",
+      coordinates: {
+        lat: 40.7484405,
+        lng: -73.9878584,
+      },
+      creatorId: "u1",
+    },
+    {
+      id: "p2",
+      title: "aaa",
+      description: "aaa",
+      imageUrl: istanbulImg,
       address: "10 W 34th St, New Work, NY 10001",
       coordinates: {
         lat: 40.7484405,
@@ -32,15 +46,18 @@ function AllPlaces() {
 
   const userId = useParams().userId;
   const loadedPlaces = PLACES.filter((place) => place.creatorId === userId);
-
+  console.log(userId);
   if (loadedPlaces.length === 0) {
     return <h2 className="h-screen">No Places Found</h2>;
   }
 
   return (
-    <ul className="h-screen grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <ul className="w-full">
       {loadedPlaces.map((place) => (
-        <li key={place.id}>
+        <li
+          key={place.id}
+          className=" my-20 flex flex-col justify-center items-center z-10"
+        >
           <PlacesItem
             id={place.id}
             imageUrl={place.imageUrl}
