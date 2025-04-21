@@ -1,0 +1,9 @@
+#modal {
+  top: 5rem;
+  left:0.8rem;
+  background: white;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  animation: fade-slide-in-from-top 0.3s ease-in-out;
+}

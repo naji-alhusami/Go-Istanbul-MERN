@@ -23,7 +23,7 @@ function AllPlaces() {
       title: "aaa",
       description: "aaa",
       imageUrl: istanbulImg,
-      address: "10 W 34th St, New Work, NY 10001",
+      address: "10 W 34th St, New Work, NY 10",
       coordinates: {
         lat: 40.7484405,
         lng: -73.9878584,
@@ -42,11 +42,22 @@ function AllPlaces() {
       },
       creatorId: "u1",
     },
+    {
+      id: "p3",
+      title: "aaa",
+      description: "aaa",
+      imageUrl: istanbulImg,
+      address: "10 W 34th St, New Work, NY 10001",
+      coordinates: {
+        lat: 40.7484405,
+        lng: -73.9878584,
+      },
+      creatorId: "u1",
+    },
   ];
 
   const userId = useParams().userId;
   const loadedPlaces = PLACES.filter((place) => place.creatorId === userId);
-  console.log(userId);
   if (loadedPlaces.length === 0) {
     return <h2 className="h-screen">No Places Found</h2>;
   }
@@ -56,17 +67,9 @@ function AllPlaces() {
       {loadedPlaces.map((place) => (
         <li
           key={place.id}
-          className=" my-20 flex flex-col justify-center items-center z-10"
+          className="pb-10 border-y border-gray-200 shadow-sm flex flex-col justify-center items-center z-10"
         >
-          <PlacesItem
-            id={place.id}
-            imageUrl={place.imageUrl}
-            title={place.title}
-            description={place.description}
-            address={place.address}
-            creatorId={place.creatorId}
-            coordinates={place.coordinates}
-          />
+          <PlacesItem {...place} />
         </li>
       ))}
     </ul>

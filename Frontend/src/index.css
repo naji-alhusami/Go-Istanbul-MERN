@@ -12,6 +12,15 @@
   font-style: normal;
 }
 
+#modal {
+  top: 1rem;
+  background: white;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  animation: fade-slide-in-from-top 0.3s ease-in-out;
+}
+
 @layer components {
   .change .line1 {
     @apply translate-y-[10px] -rotate-45;
