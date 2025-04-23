@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import PlacesItem from "./PlaceItem";
 import istanbulImg from "../../Images/istanbul.jpg";
+import najiImg from "../../Images/naji.jpg";
 // import bg from "../../Images/dragon-scales.svg";
 
 type PlaceData = {
@@ -34,7 +35,7 @@ function AllPlaces() {
       id: "p2",
       title: "aaa",
       description: "aaa",
-      imageUrl: istanbulImg,
+      imageUrl: najiImg,
       address: "10 W 34th St, New Work, NY 10001",
       coordinates: {
         lat: 40.7484405,
@@ -54,6 +55,30 @@ function AllPlaces() {
       },
       creatorId: "u1",
     },
+    {
+      id: "p4",
+      title: "aaa",
+      description: "aaa",
+      imageUrl: istanbulImg,
+      address: "10 W 34th St, New Work, NY 10001",
+      coordinates: {
+        lat: 40.7484405,
+        lng: -73.9878584,
+      },
+      creatorId: "u1",
+    },
+    {
+      id: "p5",
+      title: "aaa",
+      description: "aaa",
+      imageUrl: najiImg,
+      address: "10 W 34th St, New Work, NY 10001",
+      coordinates: {
+        lat: 40.7484405,
+        lng: -73.9878584,
+      },
+      creatorId: "u1",
+    },
   ];
 
   const userId = useParams().userId;
@@ -63,7 +88,7 @@ function AllPlaces() {
   }
 
   return (
-    <ul className="w-full">
+    <ul className="w-full h-screen">
       {loadedPlaces.map((place) => (
         <li
           key={place.id}

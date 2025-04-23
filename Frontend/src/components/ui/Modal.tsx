@@ -3,7 +3,7 @@ import { type ReactNode } from "react";
 
 import "./Modal.css";
 
-interface ModalProps {
+type ModalProps = {
   children: ReactNode;
 }
 

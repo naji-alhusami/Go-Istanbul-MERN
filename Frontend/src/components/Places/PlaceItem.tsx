@@ -100,15 +100,23 @@ PlaceData) {
           </div>
         </div>
         <div className="border-2 border-purple-400 w-full"></div>
-        <div
-          className="z-20 w-screen h-[22rem] shadow-md md:w-[22rem] md:h-[22rem]"
+        <div>
+          <img
+            src={imageUrl}
+            alt={title}
+            className=" h-full object-contain shadow-md"
+          />
+        </div>
+        {/* <div
+          className="w-full h-[22rem] shadow-md overflow-x-hidden"
           style={{
             backgroundImage: `url(${imageUrl})`,
             // backgroundImage: `url(${profilePictureURLs[activeSlide]})`,
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
+            backgroundPosition: "",
           }}
-        ></div>
+        ></div> */}
         <div className="border-2 border-purple-400 w-full"></div>
         <div className="flex flex-col justify-between items-center px-4">
           <div className="flex flex-row justify-center items-center my-4 gap-x-1">
