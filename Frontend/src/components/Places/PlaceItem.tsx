@@ -6,29 +6,30 @@ import Backdrop from "../ui/Backdrop";
 import Button from "../ui/Button";
 import { BsThreeDots } from "react-icons/bs";
 import Modal from "../ui/Modal";
+import { CityTravel } from "./AllPlaces";
 
-type PlaceData = {
-  id: string;
-  title: string;
-  description: string;
-  imageUrl: string;
-  address: string;
-  coordinates: {
-    lat: number;
-    lng: number;
-  };
-  creatorId: string;
-};
+// type PlaceData = {
+//   id: string;
+//   title: string;
+//   description: string;
+//   imageUrl: string;
+//   address: string;
+//   coordinates: {
+//     lat: number;
+//     lng: number;
+//   };
+//   creatorId: string;
+// };
 
 function PlaceItem({
-  id,
-  title,
-  // description,
-  imageUrl,
+  // cid,
   creatorId,
-  address,
-}: // coordinates
-PlaceData) {
+  // city,
+  // year,
+  // description,
+  places,
+}: CityTravel) {
+  console.log(places);
   const [showMapModal, setShowMapModal] = useState<boolean>(false);
   const [activeMenuId, setActiveMenuId] = useState<string | null>(null);
 
