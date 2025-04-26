@@ -22,7 +22,7 @@ import { CityTravel } from "./AllPlaces";
 // };
 
 function PlaceItem({
-  // cid,
+  cid,
   creatorId,
   // city,
   // year,
@@ -30,123 +30,106 @@ function PlaceItem({
   places,
 }: CityTravel) {
   console.log(places);
-  const [showMapModal, setShowMapModal] = useState<boolean>(false);
-  const [activeMenuId, setActiveMenuId] = useState<string | null>(null);
+  const [openImageMenu, setOpenImageMenu] = useState<string | null>(null);
+  const [showMapModal, setShowMapModal] = useState<string | null>(null);
 
-  const isMenuOpen = activeMenuId === id;
-
-  function toggleMenuHandler() {
-    setActiveMenuId((prevId) => (prevId === id ? null : id));
-  }
-
-  const showMapHandler = () => {
-    setShowMapModal(!showMapModal);
+  const toggleMenuHandler = () => {
+    setOpenImageMenu((prevId) => (prevId === cid ? null : cid));
   };
 
-  // const closeMapHandler = () => {
-  //   setShowMapModal(false);
-  // };
+  const toggleModalHandler = (pid: string) => {
+    setShowMapModal((prevPid) => (prevPid === pid ? null : pid));
+  };
 
   return (
     <>
-      {isMenuOpen && <Backdrop onClick={toggleMenuHandler} />}
-      {showMapModal && <Backdrop onClick={showMapHandler} />}
-      {showMapModal && <Modal> {address}</Modal>}
-      {/* <Modal
-        show={showMapModal}
-        onCancel={closeMapHandler}
-        header={address}
-        footer={
-          <Button
-            type="button"
-            className="bg-amber-600"
-            onClick={closeMapHandler}
-          >
-            Close
-          </Button>
-        }
-      >
-        <div>
-          <h2>THE MAP</h2>
-        </div>
-      </Modal> */}
-      <div className="bg-white">
-        <div className="flex flex-row justify-between items-center px-4">
-          <div className="py-2 flex flex-row justify-start items-center gap-x-2">
-            <img
-              src={imageUrl}
-              alt={title}
-              className="w-10 h-10 rounded-full object-cover border-2 border-purple-400"
-            />
-            <p className="text-center text-md">{creatorId}</p>
-          </div>
-          <div className="cursor-pointer relative" onClick={toggleMenuHandler}>
-            <BsThreeDots />
-            {isMenuOpen && (
-              <div className="absolute top-6 right-0 bg-white border border-gray-300 rounded-md shadow-md z-50 w-28">
-                <Button
-                  type="button"
-                  className="block w-full cursor-pointer px-4 py-2 hover:bg-gray-100 text-left"
-                >
-                  Edit
-                </Button>
-                <Button
-                  type="button"
-                  className="block w-full cursor-pointer px-4 py-2 hover:bg-gray-100 text-left text-red-500"
-                >
-                  Delete
-                </Button>
+      {places.map((place) => (
+        <div key={place.pid} className="bg-white my-4  rounded-md ">
+          {showMapModal === place.pid && (
+            <>
+              <Backdrop onClick={() => toggleModalHandler(place.pid)} />
+              <Modal>
+                <div className="p-4">
+                  <h2 className="text-lg font-bold mb-2">Address:</h2>
+                  <p>{place.address}</p>
+                  <Button
+                    type="button"
+                    className="mt-4 bg-purple-600 text-white"
+                    onClick={() => toggleModalHandler(place.pid)}
+                  >
+                    Close
+                  </Button>
+                </div>
+              </Modal>
+            </>
+          )}
+
+          <div className="flex justify-between items-center px-4 py-2">
+            <div className="flex items-center gap-x-2">
+              <img
+                src={place.imageUrl}
+                alt={place.place}
+                className="w-10 h-10 rounded-full border-2 border-purple-400"
+              />
+              <p>{creatorId}</p>
+            </div>
+
+            <div
+              className="relative cursor-pointer"
+              // onClick={toggleMenuHandler}
+            >
+              <div onClick={toggleMenuHandler} className="cursor-pointer">
+                <BsThreeDots />
               </div>
-            )}
+              {openImageMenu === cid && (
+                <>
+                  <Backdrop onClick={toggleMenuHandler} />
+                  <div className="absolute top-6 right-0 bg-white border rounded-md shadow-md w-28 z-50">
+                    <Button
+                      type="button"
+                      className="w-full px-4 py-2 text-left hover:bg-gray-100"
+                    >
+                      Edit
+                    </Button>
+                    <Button
+                      type="button"
+                      className="w-full px-4 py-2 text-left text-red-500 hover:bg-gray-100"
+                    >
+                      Delete
+                    </Button>
+                  </div>
+                </>
+              )}
+            </div>
           </div>
-        </div>
-        <div className="border-2 border-purple-400 w-full"></div>
-        <div>
-          <img
-            src={imageUrl}
-            alt={title}
-            className=" h-full object-contain shadow-md"
-          />
-        </div>
-        {/* <div
-          className="w-full h-[22rem] shadow-md overflow-x-hidden"
-          style={{
-            backgroundImage: `url(${imageUrl})`,
-            // backgroundImage: `url(${profilePictureURLs[activeSlide]})`,
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "",
-          }}
-        ></div> */}
-        <div className="border-2 border-purple-400 w-full"></div>
-        <div className="flex flex-col justify-between items-center px-4">
-          <div className="flex flex-row justify-center items-center my-4 gap-x-1">
-            <Button
-              type="button"
-              className="bg-red-400 hover:bg-red-600 py-0.5 rounded-md text-white"
-              // onClick={handlePrevSlide}
-            >
-              Prev
-            </Button>
-            <Button
-              type="button"
-              className=" bg-red-400 hover:bg-red-600 px-1 py-0.5 rounded-md  text-white"
-              // onClick={handleNextSlide}
-            >
-              Next
-            </Button>
-          </div>
+
           <div>
+            <img
+              src={place.imageUrl}
+              alt={place.place}
+              className="w-full object-cover h-64"
+            />
+          </div>
+
+          <div className="p-4 flex flex-col items-center gap-2">
+            <div className="flex gap-2">
+              <Button type="button" className="bg-red-400 text-white px-4 py-1">
+                Prev
+              </Button>
+              <Button type="button" className="bg-red-400 text-white px-4 py-1">
+                Next
+              </Button>
+            </div>
             <Button
               type="button"
-              onClick={showMapHandler}
-              className="text-purple-900 border-2 border-purple-900 rounded-md"
+              className="border-2 border-purple-900 text-purple-900 px-4 py-1 rounded-md"
+              onClick={() => toggleModalHandler(place.pid)}
             >
               Show on Map
             </Button>
           </div>
         </div>
-      </div>
+      ))}
     </>
   );
 }

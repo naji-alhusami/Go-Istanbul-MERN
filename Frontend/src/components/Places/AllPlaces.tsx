@@ -52,7 +52,7 @@ function AllPlaces() {
           place: "Taksim",
           description: "Taksim",
           imageUrl: istanbulImg,
-          address: "10 W 34th St, New Work, NY 10",
+          address: "10 W 34th St, New Work, NY 20",
           coordinates: {
             lat: 40.7484405,
             lng: -73.9878584,
