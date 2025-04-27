@@ -77,7 +77,7 @@ export default function Timeline() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: false, amount: 0.5 }}
           >
-            <div className="absolute -left-[1.05rem] top-1 w-4 h-4 bg-purple-600 rounded-full border-2 border-white shadow-md" />
+            {/* <div className="absolute -left-[1.05rem] top-1 w-4 h-4 bg-purple-600 rounded-full border-2 border-white shadow-md" /> */}
             <h3 className="text-xl font-semibold text-purple-700">
               {item.year} – {item.city}
             </h3>

@@ -149,11 +149,11 @@ function AllPlaces() {
   }
 
   return (
-    <ul className="w-full h-screen">
+    <ul className="ml-4 my-4 relative border-l-2 border-purple-500">
       {loadedTravelData.map((city) => (
         <li
           key={city.cid}
-          className="pb-10 border-y border-gray-200 shadow-sm flex flex-col justify-center items-center z-10"
+          className="flex flex-col justify-center items-center pb-16"
         >
           <PlacesItem {...city} />
         </li>
