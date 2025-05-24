@@ -18,7 +18,7 @@ function Navbar() {
   return (
     <>
       {showSideNavbar && <Backdrop onClick={toggleButtonHandler} />}
-      <nav className="sticky bg-white z-30 top-0 w-full px-4 shadow-lg flex flex-row justify-between items-center">
+      <nav className="sticky bg-white z-40 top-0 w-full px-8 shadow-lg flex flex-row justify-between items-center">
         <div className="text-center md:text-left py-2">
           <h1
             onClick={() => navigate("/")}

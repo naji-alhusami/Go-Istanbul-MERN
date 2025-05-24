@@ -20,7 +20,7 @@ const Button = ({
       disabled={disabled}
       type={type}
       onClick={onClick}
-      className={`${className} flex flex-row items-center justify-center px-5 rounded-md `}
+      className={`${className} flex flex-row items-center justify-center px-5`}
     >
       {children}
     </button>

@@ -49,8 +49,8 @@ function AllPlaces() {
       places: [
         {
           pid: "p1",
-          place: "Taksim",
-          description: "Taksim",
+          place: "Uskudar",
+          description: "Uskudar",
           imageUrl: istanbulImg,
           address: "10 W 34th St, New Work, NY 20",
           coordinates: {
@@ -63,15 +63,37 @@ function AllPlaces() {
     {
       cid: "c2",
       creatorId: "u1",
-      city: "Istanbul",
+      city: "Istanbuls",
       year: 2020,
       description: "aaa",
       places: [
         {
           pid: "p1",
+          place: "Sisli",
+          description: "Sisli",
+          imageUrl: najiImg,
+          address: "10 W 34th St, New Work, NY 10",
+          coordinates: {
+            lat: 40.7484405,
+            lng: -73.9878584,
+          },
+        },
+        {
+          pid: "p2",
+          place: "Besiktas",
+          description: "Besiktas",
+          imageUrl: istanbulImg,
+          address: "10 W 34th St, New Work, NY 10",
+          coordinates: {
+            lat: 40.7484405,
+            lng: -73.9878584,
+          },
+        },
+        {
+          pid: "p3",
           place: "Taksim",
           description: "Taksim",
-          imageUrl: najiImg,
+          imageUrl: istanbulImg,
           address: "10 W 34th St, New Work, NY 10",
           coordinates: {
             lat: 40.7484405,
@@ -143,17 +165,20 @@ function AllPlaces() {
   ];
 
   const userId = useParams().userId;
-  const loadedTravelData = TRAVEL_DATA.filter((place) => place.creatorId === userId);
+  const loadedTravelData = TRAVEL_DATA.filter(
+    (place) => place.creatorId === userId
+  );
   if (loadedTravelData.length === 0) {
     return <h2 className="h-screen">No Places Found</h2>;
   }
 
   return (
-    <ul className="ml-4 my-4 relative border-l-2 border-purple-500">
+    // <ul className="ml-4 my-4 relative border-l-2 border-purple-500">
+    <ul className="m-4 relative flex flex-col sm:flex-row sm:flex-wrap sm:justify-center sm:items-center gap-2">
       {loadedTravelData.map((city) => (
         <li
           key={city.cid}
-          className="flex flex-col justify-center items-center pb-16"
+          className="flex flex-col justify-center items-start py-12 px-5"
         >
           <PlacesItem {...city} />
         </li>
