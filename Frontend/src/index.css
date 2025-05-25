@@ -21,7 +21,7 @@
   animation: fade-slide-in-from-top 0.3s ease-in-out;
 }
 
-@layer components {
+/* @layer components {
   .change .line1 {
     @apply translate-y-[10px] -rotate-45;
   }
@@ -31,4 +31,4 @@
   .change .line3 {
     @apply -translate-y-[10px] rotate-45;
   }
-}
+} */

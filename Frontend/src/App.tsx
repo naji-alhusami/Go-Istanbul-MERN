@@ -10,14 +10,15 @@ import UserProfile from "./components/ui/UserProfile";
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/users" element={<AllUsers />} />
-        <Route path="/:userId/places" element={<AllPlaces />} />
-        <Route path="/test" element={<UserProfile />} />
-      </Routes>
-      {/* <Footer /> */}
+      <div className="md:flex md:flex-row md:h-screen">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/users" element={<AllUsers />} />
+          <Route path="/:userId/places" element={<AllPlaces />} />
+          <Route path="/test" element={<UserProfile />} />
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 }

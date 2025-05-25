@@ -6,7 +6,7 @@ const UserProfile = () => {
   const [activeTab, setActiveTab] = useState<"images" | "favourites">("images");
 
   return (
-    <div className="">
+    <div className="w-full">
       <div className="flex flex-col m-8">
         <div className="flex flex-row">
           <div>
@@ -17,7 +17,7 @@ const UserProfile = () => {
             />
           </div>
           <div className="flex flex-row justify-between items-center">
-            <div className="w-52 mx-4 flex flex-col items-start justify-center">
+            <div className="md:w-52 mx-4 flex flex-col items-start justify-center">
               <h1 className="text-2xl">User Name</h1>
               <div>
                 <p>Description</p>

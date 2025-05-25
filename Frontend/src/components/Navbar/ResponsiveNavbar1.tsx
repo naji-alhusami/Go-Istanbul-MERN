@@ -12,25 +12,25 @@ type ResponsiveNavbar = {
 function ResponsiveNavbar({ toggleButtonHandler }: ResponsiveNavbar) {
   return (
     <div
-      className="text-md font-bold text-black space-y-2"
+      className="italic font-bold text-lg bg-white absolute top-12 right-0 w-full sm:absolute sm:top-14 sm:right-13 sm:w-60 sm:rounded-md divide-y divide-gray-300 border border-gray-300 shadow-lg md:hidden"
       onClick={toggleButtonHandler}
     >
-      <Link to="/" className="h-12 flex items-center justify-start hover:text-purple-900">
+      <Link to="/" className="px-12 h-12 flex items-center justify-start">
         <FaHome />
         <h1 className="pl-4">HOME</h1>
       </Link>
-      <Link to="/places" className="h-12 flex items-center justify-start hover:text-purple-900">
+      <Link to="/places" className="px-12 h-12 flex items-center justify-start">
         <MdPlace />
         <h1 className="pl-4">PLACES</h1>
       </Link>
-      <Link to="/about" className="h-12 flex items-center justify-start hover:text-purple-900">
+      <Link to="/about" className="px-12 h-12 flex items-center justify-start">
         <GoBookmarkFill />
         <h1 className="pl-4">ABOUT</h1>
       </Link>
       <div className="h-12 flex items-center justify-center">
         <Button
           type="button"
-          className="w-full mx-3 text-purple-900 border border-purple-900 rounded-md cursor-pointer hover:bg-purple-700 hover:text-white text-lg"
+          className="w-full mx-12 text-purple-900 border border-purple-900 rounded-md cursor-pointer hover:bg-purple-700 hover:text-white text-lg"
         >
           Login
         </Button>
