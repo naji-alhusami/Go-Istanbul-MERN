@@ -5,11 +5,11 @@ import { GoBookmarkFill } from "react-icons/go";
 
 import Button from "../ui/Button";
 
-type ResponsiveNavbar = {
+type NavbarContent = {
   toggleButtonHandler: () => void;
 };
 
-function ResponsiveNavbar({ toggleButtonHandler }: ResponsiveNavbar) {
+function NavbarContent({ toggleButtonHandler }: NavbarContent) {
   return (
     <div
       className="text-md font-bold text-black space-y-2"
@@ -47,4 +47,4 @@ function ResponsiveNavbar({ toggleButtonHandler }: ResponsiveNavbar) {
   );
 }
 
-export default ResponsiveNavbar;
+export default NavbarContent;
