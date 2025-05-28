@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 
 import SmallNavbar from "./SmallNavbar";
 import MiddleNavbar from "./MiddleNavbar";
-import LargeNavbar from "./LargeNavbar";
+// import LargeNavbar from "./LargeNavbar";
 
 function Navbar() {
   const location = useLocation();
@@ -11,13 +11,13 @@ function Navbar() {
 
   const isSmall = useMediaQuery({ maxWidth: 767 });
   const isMedium = useMediaQuery({ minWidth: 768, maxWidth: 1023 });
-  const isLarge = useMediaQuery({ minWidth: 1024 });
+  //   const isLarge = useMediaQuery({ minWidth: 1024 });
 
   return (
     <>
       {isSmall && isUserPage && <SmallNavbar />}
       {isMedium && <MiddleNavbar />}
-      {isLarge && <LargeNavbar />}
+      {/* {isLarge && <LargeNavbar />} */}
     </>
   );
 }

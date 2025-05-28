@@ -18,10 +18,10 @@ const SmallNavbar = () => {
     <>
       {showSideNavbar && <Backdrop onClick={toggleButtonHandler} />}
       <nav className="fixed top-0 right-0 w-16 h-16 bg-white rounded-bl-full shadow-lg flex items-center justify-center z-50">
-        <div className="text-center md:text-left py-2">
+        <div className="fixed top-0 left-0 w-16 h-16 z-50  bg-white rounded-br-full shadow-lg text-center p-2">
           <h1
             onClick={() => navigate("/")}
-            className=" poetsen-one-regular md:text-purple-900 md:text-4xl"
+            className=" poetsen-one-regular text-3xl text-purple-900 md:text-4xl"
           >
             Go
           </h1>
@@ -29,12 +29,12 @@ const SmallNavbar = () => {
 
         <section className="flex flex-row justify-center items-center">
           <div
-            className={`fixed top-0 right-0 z-50 md:hidden bg-white rounded-bl-full shadow-lg transition-all duration-500 ease-in-out ${
-              isToggled ? "w-52 h-94 shadow-2xl" : "w-24 h-24"
+            className={`fixed top-0 right-0 z-50  bg-white rounded-bl-full shadow-lg transition-all duration-500 ease-in-out md:hidden ${
+              isToggled ? "w-52 h-94 shadow-2xl" : "w-16 h-16"
             }`}
           >
             <div
-              className="absolute top-6 right-6 flex flex-col items-center justify-center w-6 h-6 cursor-pointer"
+              className="absolute top-3 right-3 flex flex-col items-center justify-center w-6 h-6 cursor-pointer"
               onClick={toggleButtonHandler}
             >
               <span

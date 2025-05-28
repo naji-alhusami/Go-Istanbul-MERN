@@ -6,7 +6,7 @@ import { GoBookmarkFill } from "react-icons/go";
 import Button from "../ui/Button";
 
 type NavbarContent = {
-  toggleButtonHandler: () => void;
+  toggleButtonHandler?: () => void;
 };
 
 function NavbarContent({ toggleButtonHandler }: NavbarContent) {
@@ -15,15 +15,24 @@ function NavbarContent({ toggleButtonHandler }: NavbarContent) {
       className="text-md font-bold text-black space-y-2"
       onClick={toggleButtonHandler}
     >
-      <Link to="/" className="h-12 flex items-center justify-start hover:text-purple-900">
+      <Link
+        to="/"
+        className="h-12 flex items-center justify-start hover:text-purple-900"
+      >
         <FaHome />
         <h1 className="pl-4">HOME</h1>
       </Link>
-      <Link to="/places" className="h-12 flex items-center justify-start hover:text-purple-900">
+      <Link
+        to="/places"
+        className="h-12 flex items-center justify-start hover:text-purple-900"
+      >
         <MdPlace />
         <h1 className="pl-4">PLACES</h1>
       </Link>
-      <Link to="/about" className="h-12 flex items-center justify-start hover:text-purple-900">
+      <Link
+        to="/about"
+        className="h-12 flex items-center justify-start hover:text-purple-900"
+      >
         <GoBookmarkFill />
         <h1 className="pl-4">ABOUT</h1>
       </Link>
