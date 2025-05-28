@@ -5,14 +5,14 @@ import { GoBookmarkFill } from "react-icons/go";
 
 import Button from "../ui/Button";
 
-type NavbarContent = {
+type SmallNavbarContent = {
   toggleButtonHandler?: () => void;
 };
 
-function NavbarContent({ toggleButtonHandler }: NavbarContent) {
+const SmallNavbarContent = ({ toggleButtonHandler }: SmallNavbarContent) => {
   return (
     <div
-      className="text-md font-bold text-black space-y-2"
+      className="text-md font-bold text-black space-y-6"
       onClick={toggleButtonHandler}
     >
       <Link
@@ -54,6 +54,6 @@ function NavbarContent({ toggleButtonHandler }: NavbarContent) {
       </div>
     </div>
   );
-}
+};
 
-export default NavbarContent;
+export default SmallNavbarContent;

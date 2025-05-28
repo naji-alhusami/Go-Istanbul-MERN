@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Backdrop from "../ui/Backdrop";
-import NavbarContent from "./NavbarContent";
+import SmallNavbarContent from "./SmallNavbarContent";
 
 const SmallNavbar = () => {
   const navigate = useNavigate();
@@ -18,6 +18,7 @@ const SmallNavbar = () => {
     <>
       {showSideNavbar && <Backdrop onClick={toggleButtonHandler} />}
       <nav className="fixed top-0 right-0 w-16 h-16 bg-white rounded-bl-full shadow-lg flex items-center justify-center z-50">
+        {/* Logo */}
         <div className="fixed top-0 left-0 w-16 h-16 z-50  bg-white rounded-br-full shadow-lg text-center p-2">
           <h1
             onClick={() => navigate("/")}
@@ -27,9 +28,10 @@ const SmallNavbar = () => {
           </h1>
         </div>
 
+        {/* Navbar Toggle Button */}
         <section className="flex flex-row justify-center items-center">
           <div
-            className={`fixed top-0 right-0 z-50  bg-white rounded-bl-full shadow-lg transition-all duration-500 ease-in-out md:hidden ${
+            className={`fixed top-0 right-0 z-50  bg-white rounded-bl-full shadow-lg transition-all duration-500 ease-in-out ${
               isToggled ? "w-52 h-94 shadow-2xl" : "w-16 h-16"
             }`}
           >
@@ -53,9 +55,11 @@ const SmallNavbar = () => {
                 }`}
               ></span>
             </div>
+
+            {/* Navbar Content */}
             {isToggled && (
               <div className="absolute top-16 left-16 right-4 z-10">
-                <NavbarContent toggleButtonHandler={toggleButtonHandler} />
+                <SmallNavbarContent toggleButtonHandler={toggleButtonHandler} />
               </div>
             )}
           </div>
