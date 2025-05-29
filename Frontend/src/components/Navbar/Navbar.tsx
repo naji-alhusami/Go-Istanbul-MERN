@@ -21,7 +21,7 @@ function Navbar() {
       {(isMediumScreen || isLargeScreen) && !isUserPage && (
         <MiddleGuestNavbar />
       )}
-      {isLargeScreen && <LargeUserNavbar />}
+      {isLargeScreen && isUserPage && <LargeUserNavbar />}
     </>
   );
 }
