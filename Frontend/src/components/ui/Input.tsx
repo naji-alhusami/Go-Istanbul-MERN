@@ -29,7 +29,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           className={`mb-0.5 flex flex-row justify-start items-center gap-x-2 ${errors ? "text-red-500 font-bold" : ""}`}
         >
           {label}
-          {errors && <p className="text-red-500 text-md mt-0.5">({errors})</p>}
+          {errors && <p className="text-red-500 text-md">({errors})</p>}
         </label>
         <input
           ref={ref}
