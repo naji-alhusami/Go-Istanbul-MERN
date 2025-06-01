@@ -1,56 +1,49 @@
-type InputProps = {
+import * as React from "react";
+
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   htmlFor: string;
   label: string;
-  type: "text" | "email" | "password";
-  placeholder?: string;
-  value?: string;
-  errors?: string;
-  className: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
-  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
-};
+  type: string;
+  // className: string;
+  errors: string;
+  // errorsMessage: string;
+}
 
-const Input: React.FC<InputProps> = ({
-  htmlFor,
-  label,
-  type,
-  placeholder,
-  value,
-  errors,
-  className,
-  onChange,
-  onFocus,
-  onBlur,
-}) => {
-  return (
-    <div className="w-full my-2">
-      <label
-        htmlFor={htmlFor}
-        className="block mb-0.5"
-        // style={{ display: "block", marginBottom: "0.25rem" }}
-      >
-        {label}
-      </label>
-      <input
-        // id={htmlFor}
-        type={type}
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        className={`w-full p-2 rounded border ${className} ${
-          errors ? "border-red-500" : "border-gray-300"
-        }`}
-      />
-      {errors && (
-        <p style={{ color: "red", fontSize: "0.8rem", marginTop: "0.25rem" }}>
-          {errors}
-        </p>
-      )}
-    </div>
-  );
-};
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  (
+    {
+      htmlFor,
+      label,
+      type,
+      // className,
+      errors,
+      // errorsMessage,
+      ...props
+    },
+    ref
+  ) => {
+    return (
+      <div className="w-full my-2">
+        <label
+          htmlFor={htmlFor}
+          className={`mb-0.5 flex flex-row justify-start items-center gap-x-2 ${errors ? "text-red-500 font-bold" : ""}`}
+        >
+          {label}
+          {errors && <p className="text-red-500 text-md mt-0.5">({errors})</p>}
+        </label>
+        <input
+          ref={ref}
+          type={type}
+          className={`w-full p-2 rounded border ${
+            errors ? "border-red-500" : "border-gray-300"
+          }`}
+          {...props}
+        />
+      </div>
+    );
+  }
+);
+
+Input.displayName = "Input";
 
 export default Input;

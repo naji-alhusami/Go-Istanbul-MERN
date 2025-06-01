@@ -5,8 +5,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import Button from "../ui/Button";
 import Input from "../ui/Input";
 import {
-  //   type TSignupValidator,
-  //   type TLoginValidator,
+  type TSignupValidator,
+  type TLoginValidator,
   LoginValidator,
   SignupValidator,
   TAuthValidator,
@@ -34,13 +34,14 @@ const Auth = () => {
 
   const onSubmit: SubmitHandler<TAuthValidator> = async (data, event) => {
     event?.preventDefault();
-    // if (isLoginMode) {
-    //   const loginData = data as TLoginValidator;
-    console.log("Login data:", data);
-    // } else {
-    //   const signupData = data as TSignupValidator;
-    //   console.log("Signup data:", signupData);
-    // }
+    console.log("test inside Submition");
+    if (isLoginMode) {
+      const loginData = data as TLoginValidator;
+      console.log("Login data:", loginData);
+    } else {
+      const signupData = data as TSignupValidator;
+      console.log("Signup data:", signupData);
+    }
   };
 
   return (
@@ -80,10 +81,10 @@ const Auth = () => {
               label="Full Name"
               placeholder="Your Full Name"
               type="text"
-              className={`focus-visible:ring-red-900 ${
-                errors.email ? "border-red-500" : ""
-              }`}
-              //   errors={errors.email?.message || ""}
+              //   className={`focus-visible:ring-red-900 ${
+              //     errors.email ? "border-red-500" : ""
+              //   }`}
+              errors={errors.email?.message || ""}
             />
           )}
           <Input
@@ -92,8 +93,10 @@ const Auth = () => {
             label="Email"
             placeholder="Your Email"
             type="email"
+            //   className={`focus-visible:ring-red-900 ${
+            //     errors.email ? "border-red-500" : ""
+            //   }`}
             errors={errors.email?.message || ""}
-            className={`focus-visible:ring-blue-900 ${errors.email}`}
           />
           <Input
             {...register("password")}
@@ -102,7 +105,7 @@ const Auth = () => {
             placeholder="Your Password"
             type="password"
             errors={errors.password?.message || ""}
-            className=""
+            // className=""
           />
           {!isLoginMode && (
             <Input
@@ -111,8 +114,8 @@ const Auth = () => {
               label="Confirm Password"
               placeholder="Your Password Confirmation"
               type="password"
-              //   errors={errors.email?.message || ""}
-              className=""
+              errors={errors.email?.message || ""}
+              //   className=""
             />
           )}
           <div className="w-full mt-4 mb-2">

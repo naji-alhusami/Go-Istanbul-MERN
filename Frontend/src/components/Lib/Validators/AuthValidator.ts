@@ -29,5 +29,5 @@ export const AuthValidator = z.union([SignupValidator, LoginValidator]);
 
 export type TAuthValidator = z.infer<typeof AuthValidator>;
 
-// export type TLoginValidator = z.infer<typeof LoginValidator>;
-// export type TSignupValidator = z.infer<typeof SignupValidator>;
+export type TLoginValidator = z.infer<typeof LoginValidator>;
+export type TSignupValidator = z.infer<typeof SignupValidator>;
