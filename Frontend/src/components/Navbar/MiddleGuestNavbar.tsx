@@ -14,7 +14,7 @@ const MiddleGuestNavbar = () => {
             onClick={() => navigate("/")}
             className=" poetsen-one-regular md:text-purple-900 md:text-4xl"
           >
-            Go
+            Go-Wo
           </h1>
         </div>
 

@@ -4,7 +4,8 @@ type InputProps = {
   type: "text" | "email" | "password";
   placeholder?: string;
   value?: string;
-  error?: string;
+  errors?: string;
+  className: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
@@ -16,7 +17,8 @@ const Input: React.FC<InputProps> = ({
   type,
   placeholder,
   value,
-  error,
+  errors,
+  className,
   onChange,
   onFocus,
   onBlur,
@@ -38,13 +40,13 @@ const Input: React.FC<InputProps> = ({
         onChange={onChange}
         onFocus={onFocus}
         onBlur={onBlur}
-        className={`w-full p-2 rounded border ${
-          error ? "border-red-500" : "border-gray-300"
+        className={`w-full p-2 rounded border ${className} ${
+          errors ? "border-red-500" : "border-gray-300"
         }`}
       />
-      {error && (
+      {errors && (
         <p style={{ color: "red", fontSize: "0.8rem", marginTop: "0.25rem" }}>
-          {error}
+          {errors}
         </p>
       )}
     </div>
