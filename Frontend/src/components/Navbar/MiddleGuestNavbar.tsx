@@ -1,20 +1,26 @@
+import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+import StateContext from "../store/context/state-context";
 import Button from "../ui/Button";
 
 const MiddleGuestNavbar = () => {
   const navigate = useNavigate();
+  const { setIsLoginMode } = useContext(StateContext) as {
+    isLoginMode: boolean;
+    setIsLoginMode: (mode: boolean) => void;
+  };
 
   return (
     <>
-      <nav className="fixed top-0 w-full h-16 bg-white shadow-lg flex flex-row items-center justify-between z-50 px-10">
+      <nav className=" top-0 w-full h-16 bg-white shadow-lg flex flex-row items-center justify-between z-50 px-10">
         {/* Logo */}
         <div className="text-center md:text-left py-2">
           <h1
             onClick={() => navigate("/")}
             className=" poetsen-one-regular md:text-purple-900 md:text-4xl"
           >
-            Go-Wo
+            Go-World
           </h1>
         </div>
 
@@ -44,16 +50,24 @@ const MiddleGuestNavbar = () => {
           </div>
           <div className="italic font-bold text-md flex flex-row justify-center items-center">
             <Button
+              onClick={() => {
+                setIsLoginMode(true);
+                navigate("/auth");
+              }}
               type="button"
-              className="text-purple-900 border border-purple-900 rounded-md cursor-pointer mr-2 hover:bg-purple-700 hover:text-white text-lg"
+              className="relative text-purple-900 border border-purple-900 rounded-md cursor-pointer mr-2 text-lg overflow-hidden before:absolute before:top-0 before:left-0 before:h-full before:w-0 before:bg-purple-700 before:transition-all before:duration-400 before:ease-in-out hover:before:w-full hover:text-white"
             >
-              Login
+              <span className="relative z-10">Login</span>
             </Button>
             <Button
+              onClick={() => {
+                setIsLoginMode(false);
+                navigate("/auth");
+              }}
               type="button"
-              className="text-white border border-purple-900 rounded-md cursor-pointer bg-purple-700 hover:bg-purple-900 text-lg"
+              className="relative text-white border border-purple-900 rounded-md cursor-pointer bg-purple-700 mr-2 text-lg overflow-hidden before:absolute before:top-0 before:left-0 before:h-full before:w-0 before:bg-purple-900 before:transition-all before:duration-300 before:ease-in-out hover:before:w-full hover:text-white"
             >
-              Signup
+              <span className="relative z-10">Signup</span>
             </Button>
           </div>
         </section>
