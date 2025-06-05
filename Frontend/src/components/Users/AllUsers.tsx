@@ -39,12 +39,6 @@ function AllUsers() {
       image: "s",
       places: 2,
     },
-    // {
-    //   id: "u6",
-    //   name: "Naji",
-    //   image: "s",
-    //   places: 2,
-    // },
   ];
 
   if (USERS.length === 0) {
