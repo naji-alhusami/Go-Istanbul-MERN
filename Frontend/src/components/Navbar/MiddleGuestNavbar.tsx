@@ -13,7 +13,7 @@ const MiddleGuestNavbar = () => {
 
   return (
     <>
-      <nav className=" top-0 w-full h-16 bg-white shadow-lg flex flex-row items-center justify-between z-50 px-10">
+      <nav className="fixed top-0 w-full bg-none h-16 flex flex-row items-center justify-between z-50 px-10">
         {/* Logo */}
         <div className="text-center md:text-left py-2">
           <h1

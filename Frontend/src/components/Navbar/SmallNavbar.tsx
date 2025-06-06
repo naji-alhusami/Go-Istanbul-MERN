@@ -17,40 +17,44 @@ const SmallNavbar = () => {
   return (
     <>
       {showSideNavbar && <Backdrop onClick={toggleButtonHandler} />}
-      <nav className="fixed top-0 right-0 w-16 h-16 bg-white rounded-bl-full shadow-lg flex items-center justify-center z-50">
+      <nav className="fixed top-0 right-0 w-16 h-16   flex items-center justify-center z-50">
         {/* Logo */}
-        <div className="fixed top-0 left-0 w-16 h-16 z-50  bg-white rounded-br-full shadow-lg text-center p-2">
+        <div className="fixed top-2 left-0 w-52 h-16 z-50  rounded-br-full  text-center p-2">
           <h1
             onClick={() => navigate("/")}
-            className=" poetsen-one-regular text-3xl text-purple-900 md:text-4xl"
+            className=" poetsen-one-regular text-4xl text-purple-900 md:text-4xl"
           >
-            Go
+            Go-World
           </h1>
         </div>
 
         {/* Navbar Toggle Button */}
         <section className="flex flex-row justify-center items-center">
           <div
-            className={`fixed top-0 right-0 z-50  bg-white rounded-bl-full shadow-lg transition-all duration-500 ease-in-out ${
-              isToggled ? "w-52 h-94 shadow-2xl" : "w-16 h-16"
+            className={`fixed z-50  bg-white  transition-all duration-500 ease-in-out ${
+              isToggled
+                ? "w-48 h-116 shadow-2xl top-0 right-0 rounded-bl-full"
+                : "w-12 h-12 rounded-full top-3 right-3"
             }`}
           >
             <div
-              className="absolute top-3 right-3 flex flex-col items-center justify-center w-6 h-6 cursor-pointer"
+              className={`absolute flex flex-col items-center justify-center w-6 h-6 cursor-pointer ${
+                isToggled ? "top-6 right-6" : "top-3 right-3"
+              }`}
               onClick={toggleButtonHandler}
             >
               <span
-                className={`block w-6 h-1 bg-black rounded transition-all duration-300 ${
+                className={`block w-7 h-1 bg-purple-900 rounded transition-all duration-300 ${
                   isToggled ? "rotate-45 translate-y-2" : ""
                 }`}
               ></span>
               <span
-                className={`block w-6 h-1 bg-black rounded my-1 transition-all duration-300 ${
+                className={`block w-7 h-1 bg-purple-900  rounded my-1 transition-all duration-300 ${
                   isToggled ? "opacity-0" : ""
                 }`}
               ></span>
               <span
-                className={`block w-6 h-1 bg-black rounded transition-all duration-300 ${
+                className={`block w-7 h-1 bg-purple-900  rounded transition-all duration-300 ${
                   isToggled ? "-rotate-45 -translate-y-2" : ""
                 }`}
               ></span>

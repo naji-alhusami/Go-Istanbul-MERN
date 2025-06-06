@@ -12,7 +12,7 @@ const Home = () => {
       <div>
         <StartHome />
       </div>
-      <div className="my-10">
+      <div className="my-32">
         <SecondHome />
       </div>
       <div className="m-12">
