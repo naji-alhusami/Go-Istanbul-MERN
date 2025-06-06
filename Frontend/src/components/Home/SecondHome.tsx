@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { HomeSlidesData } from "./HomeSlidesData";
 import "./StartingHome.css";
 
-const StartingHome = () => {
+const SecondHome = () => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState<number>(0);
 
   useEffect(() => {
@@ -52,4 +52,4 @@ const StartingHome = () => {
   );
 };
 
-export default StartingHome;
+export default SecondHome;
