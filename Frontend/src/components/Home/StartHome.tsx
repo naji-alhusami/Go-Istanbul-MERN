@@ -1,24 +1,24 @@
+import Navbar from "../Navbar/Navbar";
 import home from "../../Images/home.jpg";
 import torn from "../../Images/torn.png";
-import Navbar from "../Navbar/Navbar";
 
 const StartHome = () => {
   return (
     <div className="relative">
       <Navbar />
+
       {/* Background Image */}
       <img
         src={home}
         alt="Travel Hero"
-        className="w-full h-screen object-cover z-10"
+        className="min-w-full h-screen object-cover mx-auto"
       />
 
       <img
         src={torn}
-        className="absolute top-[48rem] md:top-160 lg:top-144 xl:top-120 bottom-0 w-full z-30"
+        className="absolute top-[80vh] sm:top-[70vh] md:top-[60vh] lg:top-[55vh] xl:top-[42vh] w-full z-30"
         alt="torn edge"
       />
-
       {/* Left Gradient Overlay */}
       {/* <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a] via-[#0f172a]/30 to-transparent z-10"></div> */}
 
