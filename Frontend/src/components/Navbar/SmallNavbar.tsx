@@ -17,19 +17,19 @@ const SmallNavbar = () => {
   return (
     <>
       {showSideNavbar && <Backdrop onClick={toggleButtonHandler} />}
-      <nav className="fixed top-0 right-0 w-16 h-16   flex items-center justify-center z-50">
+      <nav className="fixed w-full flex items-center justify-between z-50">
         {/* Logo */}
-        <div className="fixed top-2 left-0 w-52 h-16 z-50  rounded-br-full  text-center p-2">
+        <div className=" z-50  text-center px-8 py-4">
           <h1
             onClick={() => navigate("/")}
-            className=" poetsen-one-regular text-4xl text-purple-900 md:text-4xl"
+            className=" poetsen-one-regular text-4xl text-white"
           >
             Go-World
           </h1>
         </div>
 
         {/* Navbar Toggle Button */}
-        <section className="flex flex-row justify-center items-center">
+        <div className="flex flex-row justify-center items-center px-8 py-4">
           <div
             className={`fixed z-50  bg-white  transition-all duration-500 ease-in-out ${
               isToggled
@@ -67,7 +67,7 @@ const SmallNavbar = () => {
               </div>
             )}
           </div>
-        </section>
+        </div>
       </nav>
     </>
   );

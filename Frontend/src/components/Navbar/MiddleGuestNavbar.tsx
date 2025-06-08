@@ -13,21 +13,21 @@ const MiddleGuestNavbar = () => {
 
   return (
     <>
-      <nav className="fixed top-0 w-full bg-none h-16 flex flex-row items-center justify-between z-50 px-10">
+      <nav className="fixed w-full bg-none h-16 flex flex-row items-center justify-between z-50">
         {/* Logo */}
-        <div className="text-center md:text-left py-2">
+        <div className="pl-8 py-4">
           <h1
             onClick={() => navigate("/")}
-            className=" poetsen-one-regular md:text-purple-900 md:text-4xl"
+            className=" poetsen-one-regular md:text-white md:text-4xl"
           >
             Go-World
           </h1>
         </div>
 
         {/* Navbar Content */}
-        <section className="flex flex-row justify-between items-center">
+        <section className="flex flex-row justify-between items-center px-8 py-4">
           <div className="flex mr-8">
-            <ul className="italic font-bold text-lg md:flex md:flex-row md:justify-center md:items-center md:gap-x-6">
+            <ul className="italic font-bold text-xl md:flex md:flex-row md:justify-center md:items-center md:gap-x-6">
               <li className="group relative">
                 <Link to="/" className="block px-2">
                   Home
@@ -55,7 +55,7 @@ const MiddleGuestNavbar = () => {
                 navigate("/auth");
               }}
               type="button"
-              className="relative text-purple-900 border border-purple-900 rounded-md cursor-pointer mr-2 text-lg overflow-hidden before:absolute before:top-0 before:left-0 before:h-full before:w-0 before:bg-purple-700 before:transition-all before:duration-400 before:ease-in-out hover:before:w-full hover:text-white"
+              className="relative py-2 text-black bg-white rounded-lg cursor-pointer mr-2 text-lg overflow-hidden before:absolute before:top-0 before:left-0 before:h-full before:w-0 before:bg-purple-700 before:transition-all before:duration-400 before:ease-in-out hover:before:w-full hover:text-white"
             >
               <span className="relative z-10">Login</span>
             </Button>
@@ -65,7 +65,7 @@ const MiddleGuestNavbar = () => {
                 navigate("/auth");
               }}
               type="button"
-              className="relative text-white border border-purple-900 rounded-md cursor-pointer bg-purple-700 mr-2 text-lg overflow-hidden before:absolute before:top-0 before:left-0 before:h-full before:w-0 before:bg-purple-900 before:transition-all before:duration-300 before:ease-in-out hover:before:w-full hover:text-white"
+              className="relative py-2 text-white border border-purple-900 rounded-lg cursor-pointer bg-purple-700 mr-2 text-lg overflow-hidden before:absolute before:top-0 before:left-0 before:h-full before:w-0 before:bg-purple-900 before:transition-all before:duration-300 before:ease-in-out hover:before:w-full hover:text-white"
             >
               <span className="relative z-10">Signup</span>
             </Button>

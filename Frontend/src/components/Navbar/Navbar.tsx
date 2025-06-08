@@ -12,8 +12,8 @@ function Navbar() {
   const location = useLocation();
   const isUserPage = location.pathname === "/user";
 
-  const isSmallScreen = useMediaQuery({ maxWidth: 837 });
-  const isMediumScreen = useMediaQuery({ minWidth: 838, maxWidth: 1110 });
+  const isSmallScreen = useMediaQuery({ maxWidth: 768 });
+  const isMediumScreen = useMediaQuery({ minWidth: 768, maxWidth: 1110 });
   const isLargeScreen = useMediaQuery({ minWidth: 1110 });
 
   return (
