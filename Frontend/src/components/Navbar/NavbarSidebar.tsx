@@ -1,49 +1,37 @@
+import { Link } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 import { GoBookmarkFill } from "react-icons/go";
 import { HiUserCircle } from "react-icons/hi";
 import { MdPlace } from "react-icons/md";
-import { Link, useNavigate } from "react-router-dom";
+
 import Backdrop from "../ui/Backdrop";
 
 type NavbarSidebarProps = {
   isToggled: boolean;
   showSideNavbar: boolean;
   toggleButtonHandler: () => void;
-  isUserPage: boolean;
 };
 
 const NavbarSidebar = ({
   isToggled,
   showSideNavbar,
   toggleButtonHandler,
-  isUserPage,
 }: NavbarSidebarProps) => {
-  const navigate = useNavigate();
-
   return (
     <>
       {showSideNavbar && <Backdrop onClick={toggleButtonHandler} />}
+      {/* Navbar in Small Screens */}
       <nav className="fixed w-full z-50 px-6 py-3 md:flex flex-row items-center justify-between md:px-8 md:py-0 lg:px-20">
-        {!isUserPage && (
-          <div className="text-center">
-            <h1
-              onClick={() => navigate("/")}
-              className="poetsen-one-regular text-4xl text-purple-900 md:hidden"
-            >
-              Go-World
-            </h1>
-          </div>
-        )}
         <div
-          className={`fixed z-50  bg-white  transition-all duration-500 ease-in-out  md:hidden ${
+          className={`fixed z-50 bg-white transition-all duration-500 ease-in-out md:hidden ${
             isToggled
-              ? "w-20 h-full shadow-2xl top-0 left-0  border-r border-red-200"
-              : "w-12 h-12 rounded-full top-3 left-4"
+              ? "w-20 h-full shadow-2xl top-0 left-0 border-r border-purple-500"
+              : "w-12 h-12 rounded-full top-3 left-4 border-2 border-purple-500"
           }`}
         >
           <div
             className={`absolute flex flex-col items-center justify-center w-6 h-6 cursor-pointer ${
-              isToggled ? "top-6 left-7" : "top-3 left-3"
+              isToggled ? "top-6 left-7" : "top-2.5 left-2.5"
             }`}
             onClick={toggleButtonHandler}
           >
@@ -64,7 +52,6 @@ const NavbarSidebar = ({
             ></span>
           </div>
 
-          {/* Navbar Content */}
           {isToggled && (
             <nav className="flex flex-col justify-between items-center h-[80vh] mt-28 md:hidden">
               <div className="flex flex-col items-center gap-y-8">

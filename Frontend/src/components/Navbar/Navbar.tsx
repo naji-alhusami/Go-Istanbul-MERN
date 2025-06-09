@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+
 import NavbarUser from "./NavbarUser";
 import NavbarGuest from "./NavbarGuest";
 
@@ -17,7 +18,7 @@ function Navbar() {
   const isUserPage = location.pathname === "/user";
 
   useEffect(() => {
-    const triggerPoint = isUserPage ? 50 : 200; 
+    const triggerPoint = isUserPage ? 50 : 200;
 
     const handleScroll = () => {
       setIsScrolled(window.scrollY > triggerPoint);
@@ -33,17 +34,16 @@ function Navbar() {
         <NavbarUser
           isToggled={isToggled}
           showSideNavbar={showSideNavbar}
-          toggleButtonHandler={toggleButtonHandler}
           isUserPage={isUserPage}
           isScrolled={isScrolled}
+          toggleButtonHandler={toggleButtonHandler}
         />
       ) : (
         <NavbarGuest
           isToggled={isToggled}
           showSideNavbar={showSideNavbar}
-          toggleButtonHandler={toggleButtonHandler}
-          isUserPage={isUserPage}
           isScrolled={isScrolled}
+          toggleButtonHandler={toggleButtonHandler}
         />
       )}
     </>
