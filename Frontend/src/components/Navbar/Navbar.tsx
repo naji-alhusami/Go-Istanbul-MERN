@@ -1,29 +1,38 @@
 import { useLocation } from "react-router-dom";
-import { useMediaQuery } from "react-responsive";
 
-import SmallNavbar from "./SmallNavbar";
-import MiddleUserNavbar from "./MiddleUserNavbar";
-import MiddleGuestNavbar from "./MiddleGuestNavbar";
-import LargeUserNavbar from "./LargeUserNavbar";
+import NavbarUser from "./NavbarUser";
+import NavbarGuest from "./NavbarGuest";
+import { useState } from "react";
 
 function Navbar() {
+  const [isToggled, setIsToggled] = useState<boolean>(false);
+  const [showSideNavbar, setShowSideNavbar] = useState<boolean>(false);
 
+  function toggleButtonHandler() {
+    setIsToggled(!isToggled);
+    setShowSideNavbar(!showSideNavbar);
+  }
 
   const location = useLocation();
   const isUserPage = location.pathname === "/user";
 
-  const isSmallScreen = useMediaQuery({ maxWidth: 768 });
-  const isMediumScreen = useMediaQuery({ minWidth: 768, maxWidth: 1110 });
-  const isLargeScreen = useMediaQuery({ minWidth: 1110 });
-
   return (
     <>
-      {isSmallScreen && <SmallNavbar />}
-      {isMediumScreen && isUserPage && <MiddleUserNavbar />}
-      {(isMediumScreen || isLargeScreen) && !isUserPage && (
-        <MiddleGuestNavbar />
+      {isUserPage ? (
+        <NavbarUser
+          isToggled={isToggled}
+          showSideNavbar={showSideNavbar}
+          toggleButtonHandler={toggleButtonHandler}
+          isUserPage={isUserPage}
+        />
+      ) : (
+        <NavbarGuest
+          isToggled={isToggled}
+          showSideNavbar={showSideNavbar}
+          toggleButtonHandler={toggleButtonHandler}
+          isUserPage={isUserPage}
+        />
       )}
-      {isLargeScreen && isUserPage && <LargeUserNavbar />}
     </>
   );
 }

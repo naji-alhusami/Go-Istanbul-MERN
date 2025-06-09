@@ -7,10 +7,8 @@ const UserProfile = () => {
   const [activeTab, setActiveTab] = useState<"images" | "favourites">("images");
 
   return (
-    <div className="flex flex-row h-screen">
-      <div>
-        <Navbar />
-      </div>
+    <div className="flex flex-col h-screen md:flex md:flex-row">
+      <Navbar />
       <div className="hidden lg:flex lg:flex-col lg:gap-y-8 lg:m-10">
         <Button
           type="button"
