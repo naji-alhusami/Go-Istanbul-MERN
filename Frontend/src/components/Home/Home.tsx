@@ -3,6 +3,7 @@ import AllUsers from "../Users/AllUsers";
 // import Navbar from "../Navbar/Navbar";
 import StartHome from "./StartHome";
 import AppSteps from "./AppSteps";
+import MostSharedPlaces from "./MostSharedPlaces";
 
 const Home = () => {
   return (
@@ -14,15 +15,9 @@ const Home = () => {
         <StartHome />
       </div>
       <AppSteps />
-      <div className="">
-        <SecondHome />
-      </div>
-      <div className="m-12">
-        <h1 className="text-center lilita-one-regular text-3xl sm:text-4xl text-red-500 my-10">
-          SHARED MOMENTS
-        </h1>
-        <AllUsers />
-      </div>
+      <SecondHome />
+      <MostSharedPlaces />
+      <AllUsers />
     </div>
   );
 };
