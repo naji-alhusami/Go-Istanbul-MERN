@@ -16,14 +16,16 @@ type NavbarGuestProps = {
   showSideNavbar: boolean;
   toggleButtonHandler: () => void;
   isUserPage: boolean;
+  isScrolled: boolean;
 };
 
 const NavbarGuest = ({
   isToggled,
   showSideNavbar,
   toggleButtonHandler,
-//   isUserPage,
-}: NavbarGuestProps) => {
+  isScrolled,
+}: //   isUserPage,
+NavbarGuestProps) => {
   const navigate = useNavigate();
 
   const { setIsLoginMode } = useContext(StateContext) as {
@@ -34,45 +36,34 @@ const NavbarGuest = ({
   return (
     <>
       {showSideNavbar && <Backdrop onClick={toggleButtonHandler} />}
-      <nav className="fixed w-full z-50 px-6 py-3 md:flex flex-row items-center justify-between md:px-8 md:py-0 lg:px-20">
-        <div className="text-center">
+      <nav
+        className={`fixed w-full z-50 transition-all duration-300 px-6 py-3 md:flex flex-row items-center justify-between md:px-8 md:py-0 lg:px-20 ${
+          isScrolled ? "bg-white shadow-md" : "bg-transparent"
+        }`}
+      >
+        <div className="text-center py-1">
           <h1
             onClick={() => navigate("/")}
-            className="text-stroke-purple poetsen-one-regular text-4xl text-white"
+            className={`${
+              isScrolled ? " text-purple-900" : "text-stroke-purple text-white"
+            } poetsen-one-regular text-4xl `}
           >
             Go-World
           </h1>
         </div>
 
-        {/* Navbar Sidebar For Small Screens */}
-        {/* <NavbarSidebar
-          isToggled={isToggled}
-          showSideNavbar={showSideNavbar}
-          toggleButtonHandler={toggleButtonHandler}
-          isUserPage={isUserPage}
-        /> */}
-
+        {/* Navbar in Small Screens */}
         <nav className="fixed w-full z-50 px-6 py-3 md:flex flex-row items-center justify-between md:px-8 md:py-0 lg:px-20">
-          {/* {!isUserPage && (
-            <div className="text-center">
-              <h1
-                onClick={() => navigate("/")}
-                className="poetsen-one-regular text-4xl text-purple-900 md:hidden"
-              >
-                Go-World
-              </h1>
-            </div>
-          )} */}
           <div
-            className={`fixed z-50  bg-white  transition-all duration-500 ease-in-out  md:hidden ${
+            className={`fixed z-50 bg-white transition-all duration-500 ease-in-out md:hidden ${
               isToggled
-                ? "w-20 h-full shadow-2xl top-0 left-0  border-r border-red-200"
-                : "w-12 h-12 rounded-full top-3 left-4"
+                ? "w-20 h-full shadow-2xl top-0 left-0 border-r border-purple-500"
+                : "w-12 h-12 rounded-full top-3 left-4 border-2 border-purple-500"
             }`}
           >
             <div
               className={`absolute flex flex-col items-center justify-center w-6 h-6 cursor-pointer ${
-                isToggled ? "top-6 left-7" : "top-3 left-3"
+                isToggled ? "top-6 left-7" : "top-2.5 left-2.5"
               }`}
               onClick={toggleButtonHandler}
             >
@@ -93,7 +84,6 @@ const NavbarGuest = ({
               ></span>
             </div>
 
-            {/* Navbar Content */}
             {isToggled && (
               <nav className="flex flex-col justify-between items-center h-[80vh] mt-28 md:hidden">
                 <div className="flex flex-col items-center gap-y-8">
@@ -128,8 +118,8 @@ const NavbarGuest = ({
           </div>
         </nav>
 
-        {/* Navbar Content */}
-        <section className="hidden md:flex flex-row justify-between items-center py-4">
+        {/* Navbar in Large Screens */}
+        <nav className="hidden md:flex flex-row justify-between items-center py-4">
           <div className="flex mr-8">
             <ul className="italic font-bold text-xl md:flex md:flex-row md:justify-center md:items-center md:gap-x-6">
               <li className="group relative">
@@ -159,7 +149,13 @@ const NavbarGuest = ({
                 navigate("/auth");
               }}
               type="button"
-              className="relative py-2 text-black bg-white rounded-lg cursor-pointer mr-2 text-lg overflow-hidden before:absolute before:top-0 before:left-0 before:h-full before:w-0 before:bg-purple-700 before:transition-all before:duration-400 before:ease-in-out hover:before:w-full hover:text-white"
+              className={`relative border-purple-900 py-2 px-4 border rounded-lg cursor-pointer mr-2 text-lg overflow-hidden transition-colors duration-300
+                ${
+                isScrolled
+                ? " text-purple-900 bg-white hover:bg-purple-900 hover:text-white"
+                : "bg-white text-purple-900 hover:bg-purple-900 hover:text-white "
+                }
+            `}
             >
               <span className="relative z-10">Login</span>
             </Button>
@@ -169,12 +165,12 @@ const NavbarGuest = ({
                 navigate("/auth");
               }}
               type="button"
-              className="relative py-2 text-white border border-purple-900 rounded-lg cursor-pointer bg-purple-700 mr-2 text-lg overflow-hidden before:absolute before:top-0 before:left-0 before:h-full before:w-0 before:bg-purple-900 before:transition-all before:duration-300 before:ease-in-out hover:before:w-full hover:text-white"
+              className="relative py-2 text-white border border-purple-900 rounded-lg cursor-pointer bg-purple-700 mr-2 text-lg overflow-hidden transition-colors duration-300 hover:bg-purple-900"
             >
               <span className="relative z-10">Signup</span>
             </Button>
           </div>
-        </section>
+        </nav>
       </nav>
     </>
   );

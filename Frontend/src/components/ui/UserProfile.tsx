@@ -23,7 +23,7 @@ const UserProfile = () => {
           Add
         </Button>
       </div>
-      <div className="w-full">
+      <div className="w-full mt-10 md:mt-0">
         <div className="flex flex-col m-8">
           <div className="flex flex-row">
             <div>
@@ -66,6 +66,118 @@ const UserProfile = () => {
               </div>
               {/* </div> */}
             </div>
+          </div>
+          <div className="py-4 flex flex-row justify-start items-center gap-x-6 lg:hidden">
+            <Button
+              type="button"
+              className="cursor-pointer rounded-full w-16 h-16 bg-gray-200 border-2 border-gray-500"
+            >
+              Add
+            </Button>
+            <Button
+              type="button"
+              className="cursor-pointer rounded-full w-16 h-16 bg-gray-200 border-2 border-gray-500"
+            >
+              Add
+            </Button>
+          </div>
+          <div className="py-4 flex flex-row justify-start items-center gap-x-6 lg:hidden">
+            <Button
+              type="button"
+              className="cursor-pointer rounded-full w-16 h-16 bg-gray-200 border-2 border-gray-500"
+            >
+              Add
+            </Button>
+            <Button
+              type="button"
+              className="cursor-pointer rounded-full w-16 h-16 bg-gray-200 border-2 border-gray-500"
+            >
+              Add
+            </Button>
+          </div>
+          <div className="py-4 flex flex-row justify-start items-center gap-x-6 lg:hidden">
+            <Button
+              type="button"
+              className="cursor-pointer rounded-full w-16 h-16 bg-gray-200 border-2 border-gray-500"
+            >
+              Add
+            </Button>
+            <Button
+              type="button"
+              className="cursor-pointer rounded-full w-16 h-16 bg-gray-200 border-2 border-gray-500"
+            >
+              Add
+            </Button>
+          </div>
+          <div className="py-4 flex flex-row justify-start items-center gap-x-6 lg:hidden">
+            <Button
+              type="button"
+              className="cursor-pointer rounded-full w-16 h-16 bg-gray-200 border-2 border-gray-500"
+            >
+              Add
+            </Button>
+            <Button
+              type="button"
+              className="cursor-pointer rounded-full w-16 h-16 bg-gray-200 border-2 border-gray-500"
+            >
+              Add
+            </Button>
+          </div>
+          <div className="py-4 flex flex-row justify-start items-center gap-x-6 lg:hidden">
+            <Button
+              type="button"
+              className="cursor-pointer rounded-full w-16 h-16 bg-gray-200 border-2 border-gray-500"
+            >
+              Add
+            </Button>
+            <Button
+              type="button"
+              className="cursor-pointer rounded-full w-16 h-16 bg-gray-200 border-2 border-gray-500"
+            >
+              Add
+            </Button>
+          </div>
+          <div className="py-4 flex flex-row justify-start items-center gap-x-6 lg:hidden">
+            <Button
+              type="button"
+              className="cursor-pointer rounded-full w-16 h-16 bg-gray-200 border-2 border-gray-500"
+            >
+              Add
+            </Button>
+            <Button
+              type="button"
+              className="cursor-pointer rounded-full w-16 h-16 bg-gray-200 border-2 border-gray-500"
+            >
+              Add
+            </Button>
+          </div>
+          <div className="py-4 flex flex-row justify-start items-center gap-x-6 lg:hidden">
+            <Button
+              type="button"
+              className="cursor-pointer rounded-full w-16 h-16 bg-gray-200 border-2 border-gray-500"
+            >
+              Add
+            </Button>
+            <Button
+              type="button"
+              className="cursor-pointer rounded-full w-16 h-16 bg-gray-200 border-2 border-gray-500"
+            >
+              Add
+            </Button>
+          </div>
+          <div className="py-4 flex flex-row justify-start items-center gap-x-6 lg:hidden">
+            <Button
+              type="button"
+              className="cursor-pointer rounded-full w-16 h-16 bg-gray-200 border-2 border-gray-500"
+            >
+              Add
+            </Button>
+            <Button
+              type="button"
+              className="cursor-pointer rounded-full w-16 h-16 bg-gray-200 border-2 border-gray-500"
+            >
+              Add
+            </Button>
           </div>
           <div className="py-4 flex flex-row justify-start items-center gap-x-6 lg:hidden">
             <Button
