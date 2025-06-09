@@ -2,6 +2,7 @@ import SecondHome from "./SecondHome";
 import AllUsers from "../Users/AllUsers";
 // import Navbar from "../Navbar/Navbar";
 import StartHome from "./StartHome";
+import AppSteps from "./AppSteps";
 
 const Home = () => {
   return (
@@ -12,7 +13,8 @@ const Home = () => {
       <div>
         <StartHome />
       </div>
-      <div className="my-32">
+      <AppSteps />
+      <div className="">
         <SecondHome />
       </div>
       <div className="m-12">

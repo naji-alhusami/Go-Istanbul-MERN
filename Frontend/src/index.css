@@ -23,7 +23,7 @@
 
 .text-stroke-purple {
   -webkit-text-stroke: 1px purple;
-  color: white; /* Set fill color separately */
+  color: white;
 }
 
 /* @layer components {

@@ -28,7 +28,7 @@ const NavbarGuest = ({
   return (
     <>
       <nav
-        className={`fixed w-full z-50 transition-all duration-300 px-6 py-3 md:flex flex-row items-center justify-between md:px-8 md:py-0 lg:px-20 ${
+        className={`fixed w-full z-60 transition-all duration-300 px-6 py-3 md:flex flex-row items-center justify-between md:px-8 md:py-0 lg:px-20 ${
           isScrolled ? "bg-white shadow-md" : "bg-transparent"
         }`}
       >

@@ -26,18 +26,23 @@ const StartHome = () => {
       <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a] via-[#0f172a]/30 to-transparent z-10"></div>
 
       {/* Content */}
-      <div className="absolute inset-0 z-20 flex flex-col justify-center items-center md:items-start text-white w-full px-10 md:px-20 text-center">
-        <h1 className="text-6xl font-bold leading-tight text-center md:text-start">
-          Build Your Memories &<h1> Share The Best </h1>
-          <span className="relative">
+      <div className="absolute inset-0 z-20 flex flex-col justify-center items-center md:items-start text-white w-full px-8 lg:px-21   text-center">
+        <div className="text-6xl font-bold leading-tight text-center md:text-start">
+          <h1 className="hidden sm:flex sm:text-6xl sm:font-bold">
+            Build Your Memories &
+          </h1>
+          <h1> Share The Best </h1>
+          <span className="relative inline-block mt-4">
             <img
               src={brush}
               alt="brush texture"
-              className="absolute top-1/2 left-0 w-full transform -translate-y-1/2"
+              className="absolute top-12 left-0 w-full h-22 md:h-24 lg:h-28 xl:h-32 transform -translate-y-1/2"
             />
-            <span className="relative z-10 text-white">Places</span>
+            <span className="relative z-10 text-white text-6xl sm:text-7xl">
+              Places
+            </span>
           </span>
-        </h1>
+        </div>
 
         <p className="mt-4 text-lg font-bold">
           Help Others Discover The Best Places In Modern Cities
