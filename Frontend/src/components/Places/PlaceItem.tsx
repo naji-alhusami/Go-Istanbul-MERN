@@ -6,7 +6,7 @@ import Backdrop from "../ui/Backdrop";
 import Button from "../ui/Button";
 import { BsThreeDots } from "react-icons/bs";
 // import Modal from "../ui/Modal";
-import { CityTravel } from "./AllPlaces";
+import { City } from "../Lib/Types/CityType";
 import { motion } from "framer-motion";
 
 // type PlaceData = {
@@ -29,7 +29,7 @@ function PlaceItem({
   year,
   // description,
   places,
-}: CityTravel) {
+}: City) {
   console.log(places);
   const [openImageMenu, setOpenImageMenu] = useState<string | null>(null);
   // const [showMapModal, setShowMapModal] = useState<string | null>(null);
