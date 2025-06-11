@@ -125,4 +125,44 @@ export const TRAVEL_DATA: City[] = [
       },
     ],
   },
+  {
+    cid: "c5",
+    creatorId: "u1",
+    city: "Berlin",
+    year: 2020,
+    description: "aaa",
+    places: [
+      {
+        pid: "p6",
+        place: "Berlin",
+        description: "Berlin",
+        imageUrl: istanbulImg,
+        address: "10 W 34th St, New Work, NY 10",
+        coordinates: {
+          lat: 40.7484405,
+          lng: -73.9878584,
+        },
+      },
+    ],
+  },
+  {
+    cid: "c6",
+    creatorId: "u2",
+    city: "Istanbul",
+    year: 2020,
+    description: "aaa",
+    places: [
+      {
+        pid: "p6",
+        place: "Taksim",
+        description: "Taksim",
+        imageUrl: istanbulImg,
+        address: "10 W 34th St, New Work, NY 10",
+        coordinates: {
+          lat: 40.7484405,
+          lng: -73.9878584,
+        },
+      },
+    ],
+  },
 ];

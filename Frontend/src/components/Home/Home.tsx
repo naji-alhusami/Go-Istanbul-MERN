@@ -1,9 +1,9 @@
 import SecondHome from "./SecondHome";
-import AllUsers from "../Users/AllUsers";
+// import AllUsers from "../Users/AllUsers";
 // import Navbar from "../Navbar/Navbar";
 import StartHome from "./StartHome";
 import AppSteps from "./AppSteps";
-import MostSharedPlaces from "./MostSharedPlaces";
+import TopDestinations from "./TopDestinations";
 
 const Home = () => {
   return (
@@ -16,8 +16,8 @@ const Home = () => {
       </div>
       <AppSteps />
       <SecondHome />
-      <MostSharedPlaces />
-      <AllUsers />
+      <TopDestinations />
+      {/* <AllUsers /> */}
     </div>
   );
 };
