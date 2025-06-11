@@ -20,7 +20,7 @@ const Header: React.FC<SectionHeaderProps> = ({
       : "text-center";
 
   return (
-    <div className={`mb-8 mx-4 ${alignment}`}>
+    <div className={`mb-6 mx-4 ${alignment}`}>
       <p className="uppercase tracking-widest text-gray-400 text-sm font-bold">
         {subtitle}
       </p>

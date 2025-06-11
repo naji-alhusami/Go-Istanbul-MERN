@@ -10,15 +10,26 @@ export type User = {
 
 export const DUMMY_USERS: User[] = [
   {
-    uid: "p1",
-    username: "naji",
+    uid: "u1",
+    username: "Naji",
     avatarUrl: "s",
     bio: "frg",
-    // cityTravels: "This is Naji",
   },
   {
     uid: "u2",
-    username: "wael",
+    username: "Wael",
+    avatarUrl: "s",
+    bio: "srfgvb",
+  },
+  {
+    uid: "u3",
+    username: "Sulaiman",
+    avatarUrl: "s",
+    bio: "frg",
+  },
+  {
+    uid: "u4",
+    username: "Faidi",
     avatarUrl: "s",
     bio: "srfgvb",
   },

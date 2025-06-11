@@ -6,7 +6,7 @@
 // import Button from "../ui/Button";
 // import { BsThreeDots } from "react-icons/bs";
 // import Modal from "../ui/Modal";
-import { City } from "../Lib/Types/CityType";
+import { City, TRAVEL_DATA } from "../Lib/Types/CityType";
 import { motion } from "framer-motion";
 
 // type PlaceData = {
@@ -23,25 +23,30 @@ import { motion } from "framer-motion";
 // };
 
 function DestinationCard({
-//   cid,
+  //   cid,
   // creatorId,
   city,
   //   year,
   // description,
   places,
 }: City) {
-//   console.log(places);
-//   const [openImageMenu, setOpenImageMenu] = useState<string | null>(null);
+  //   console.log(places);
+  //   const [openImageMenu, setOpenImageMenu] = useState<string | null>(null);
   // const [showMapModal, setShowMapModal] = useState<string | null>(null);
 
-//   const toggleMenuHandler = () => {
-//     setOpenImageMenu((prevId) => (prevId === cid ? null : cid));
-//   };
+  //   const toggleMenuHandler = () => {
+  //     setOpenImageMenu((prevId) => (prevId === cid ? null : cid));
+  //   };
 
   // const toggleModalHandler = (pid: string) => {
   //   setShowMapModal((prevPid) => (prevPid === pid ? null : pid));
   // };
-
+  const uniqueUserCount = new Set(
+    TRAVEL_DATA.filter(
+      (entry) => entry.city.toLowerCase() === city.toLowerCase()
+    ).map((entry) => entry.creatorId)
+  ).size;
+  console.log(uniqueUserCount);
   return (
     <>
       <div className="w-full flex flex-row justify-between items-center">
@@ -54,7 +59,7 @@ function DestinationCard({
           viewport={{ once: false, amount: 0.5 }}
         >
           {/* <div className="absolute -left-[1.05rem] top-1 w-4 h-4 bg-purple-600 rounded-full border-2 border-white shadow-md" /> */}
-          <h3 className="text-3xl font-bold text-purple-700 m-0">{city}</h3>
+          {/* <h3 className="text-3xl font-bold text-purple-700 m-0">{city}</h3> */}
           {/* <p className="text-gray-600 m-0">{place.description}</p> */}
 
           {/* Header of Each Image */}
@@ -91,8 +96,8 @@ function DestinationCard({
         {/* </div> */}
         {/* </div> */}
       </div>
-      <div className="relative w-full h-60 my-4">
-        {places[2] && (
+      <div className="relative w-full h-60 my-4 rounded-lg overflow-hidden shadow-xl">
+        {/* {places[2] && (
           <img
             src={places[2].imageUrl}
             alt={places[2].place}
@@ -105,14 +110,21 @@ function DestinationCard({
             alt={places[1].place}
             className="absolute top-2 left-2 w-full h-full object-cover rounded-lg shadow-md opacity-80 z-20"
           />
-        )}
+        )} */}
         {places[0] && (
           <img
             src={places[0].imageUrl}
             alt={places[0].place}
-            className="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg z-30"
+            className="absolute top-0 left-0 w-full h-full object-cover z-0"
           />
         )}
+        <div className="text-3xl font-bold text-purple-700 m-0 absolute top-0 left-0 w-full bg-gray-300 bg-opacity-60 px-3 py-1 z-10">
+          {city}
+        </div>
+
+        <div className="absolute bottom-0 left-0 w-full bg-gray-300 bg-opacity-60 text-white text-xl font-bold px-3 py-1 z-10">
+          Visited by {uniqueUserCount} user{uniqueUserCount !== 1 && "s"}
+        </div>
       </div>
     </>
   );
