@@ -49,7 +49,7 @@ function DestinationCard({
   console.log(uniqueUserCount);
   return (
     <>
-      <div className="w-full flex flex-row justify-between items-center">
+      <div className="flex flex-row justify-between items-center">
         <motion.div
           // key={index}
           className="relative"

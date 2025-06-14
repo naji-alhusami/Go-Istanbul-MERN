@@ -1,4 +1,4 @@
-import SecondHome from "./SecondHome";
+// import SecondHome from "./SecondHome";
 // import AllUsers from "../Users/AllUsers";
 // import Navbar from "../Navbar/Navbar";
 import StartHome from "./StartHome";
@@ -15,7 +15,7 @@ const Home = () => {
         <StartHome />
       </div>
       <AppSteps />
-      <SecondHome />
+      {/* <SecondHome /> */}
       <TopDestinations />
       {/* <AllUsers /> */}
     </div>

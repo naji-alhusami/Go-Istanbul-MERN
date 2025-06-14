@@ -22,9 +22,9 @@ const TopDestinations = () => {
   };
 
   const mostVisited = getMostVisitedCities();
-
+  console.log("Most Visited:", mostVisited);
   return (
-    <>
+    <div className="w-full flex flex-col justify-center items-center">
       <Header
         subtitle="Top Shared Destinations"
         title="Discover the Most Visited Cities by Travelers"
@@ -33,18 +33,18 @@ const TopDestinations = () => {
       {mostVisited.length === 0 ? (
         <h2>No Places Found</h2>
       ) : (
-        <ul className="mx-4 relative flex flex-col sm:flex-row sm:flex-wrap sm:justify-center sm:items-center gap-2">
+        <ul className="w-full mx-4 relative flex flex-col md:w-full md:flex-row md:justify-center md:items-center">
           {mostVisited.map((city) => (
             <li
               key={city.cid}
-              className="flex flex-col justify-center items-start py-6 px-5"
+              className="flex flex-col justify-center items-start py-6 px-5 md:w-full"
             >
               <DestinationCard {...city} />
             </li>
           ))}
         </ul>
       )}
-    </>
+    </div>
   );
 };
 
