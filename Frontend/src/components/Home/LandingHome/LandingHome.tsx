@@ -1,10 +1,11 @@
-import Navbar from "../Navbar/Navbar";
-import home from "../../Images/home.jpg";
-import torn from "../../Images/torn.png";
-import brush from "../../Images/brush.png";
-import Button from "../ui/Button";
+import Navbar from "../../Navbar/Navbar";
+import Button from "../../ui/Button";
 
-const StartHome = () => {
+import home from "../../../Images/home.jpg";
+import torn from "../../../Images/torn.png";
+import brush from "../../../Images/brush.png";
+
+const LandingHome = () => {
   return (
     <div className="relative">
       <Navbar />
@@ -59,4 +60,4 @@ const StartHome = () => {
   );
 };
 
-export default StartHome;
+export default LandingHome;

@@ -1,23 +1,15 @@
-// import SecondHome from "./SecondHome";
-// import AllUsers from "../Users/AllUsers";
-// import Navbar from "../Navbar/Navbar";
-import StartHome from "./StartHome";
-import AppSteps from "./AppSteps";
-import TopDestinations from "./TopDestinations";
+import LandingHome from "./LandingHome/LandingHome";
+import AppSteps from "./AppSteps/AppSteps";
+import MostVisitedCities from "./MostVisitedCities/MostVisitedCities";
+import CitiesCarousel from "./CitiesCarousel/CitiesCarousel";
 
 const Home = () => {
   return (
     <div className="md:flex md:flex-col md:h-screen">
-      {/* <div className="z-20">
-        <Navbar />
-      </div> */}
-      <div>
-        <StartHome />
-      </div>
+      <LandingHome />
       <AppSteps />
-      {/* <SecondHome /> */}
-      <TopDestinations />
-      {/* <AllUsers /> */}
+      <MostVisitedCities />
+      <CitiesCarousel />
     </div>
   );
 };

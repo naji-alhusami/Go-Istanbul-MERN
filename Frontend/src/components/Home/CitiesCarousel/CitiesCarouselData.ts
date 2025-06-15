@@ -1,9 +1,9 @@
-import istanbulImage from "../../Images/istanbul.jpg";
-import parisImage from "../../Images/paris.jpg";
-import berlinImage from "../../Images/berlin.jpg";
-import rioImage from "../../Images/rio.jpg";
-import milanImage from "../../Images/milan.jpg";
-import brusselImage from "../../Images/brussel.jpg";
+import istanbulImage from "../../../Images/istanbul.jpg";
+import parisImage from "../../../Images/paris.jpg";
+import berlinImage from "../../../Images/berlin.jpg";
+import rioImage from "../../../Images/rio.jpg";
+import milanImage from "../../../Images/milan.jpg";
+import brusselImage from "../../../Images/brussel.jpg";
 
 type Slide = {
   background: string;
@@ -12,7 +12,7 @@ type Slide = {
   buttonText: string;
 };
 
-export const HomeSlidesData: Slide[] = [
+export const CitiesCarouselData: Slide[] = [
   {
     background: istanbulImage,
     heading: "Explore Istanbul’s Timeless Beauty",

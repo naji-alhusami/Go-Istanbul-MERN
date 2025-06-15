@@ -1,9 +1,10 @@
 import { HiUsers } from "react-icons/hi";
-import { City, TRAVEL_DATA } from "../Lib/Types/CityType";
-import Button from "../ui/Button";
 import { MdPlace } from "react-icons/md";
 
-function DestinationCard({
+import Button from "../../ui/Button";
+import { City, TRAVEL_DATA } from "../../Lib/Types/CityType";
+
+function CityCard({
   //   cid,
   // creatorId,
   city,
@@ -28,7 +29,7 @@ function DestinationCard({
 
   return (
     <>
-      <div className="relative w-full h-110 my-4 rounded-3xl overflow-hidden shadow-xl bg-white bg-opacity-60 border-2 border-red-300">
+      <div className="relative w-full h-110 my-4 rounded-3xl overflow-hidden shadow-xl bg-white bg-opacity-60 border-2 border-gray-300">
         {places[0] && (
           <img
             src={places[0].imageUrl}
@@ -38,7 +39,7 @@ function DestinationCard({
         )}
 
         <div className="absolute bottom-2 left-0 w-full bg-white bg-opacity-60 text-black text-xl font-bold px-3 py-1 z-10">
-          <h1 className="text-3xl">{city}</h1>
+          <h1 className="text-3xl text-red-500">{city}</h1>
           <div className="flex flex-row justify-start items-end gap-x-8 pt-8 pb-2">
             <div className="flex flex-row justify-center items-center text-gray-400">
               <HiUsers />
@@ -67,4 +68,4 @@ function DestinationCard({
   );
 }
 
-export default DestinationCard;
+export default CityCard;

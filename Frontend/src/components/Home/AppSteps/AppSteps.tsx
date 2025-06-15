@@ -1,15 +1,19 @@
-import Header from "../ui/Header";
+import Header from "../../ui/Header";
 import { AppStepsData } from "./AppStepsData";
-import DownArrow from "../../Images/DownArrow.png";
-import RightArrow from "../../Images/RightArrow.png";
+
+import DownArrow from "../../../Images/DownArrow.png";
+import RightArrow from "../../../Images/RightArrow.png";
 
 const AppSteps = () => {
   return (
     <div className="my-32 z-50">
+      {/* Header */}
       <Header
         subtitle="A New Way to Travel"
         title="Organize, Share, and Revisit Your Trips"
       />
+
+      {/* App Steps */}
       <div className="mx-10 flex flex-col items-center justify-center lg:flex lg:flex-row">
         {AppStepsData.map(({ number, title, description }, index) => (
           <div
@@ -24,7 +28,6 @@ const AppSteps = () => {
                 {description}
               </p>
             </div>
-
             {index < AppStepsData.length - 1 && (
               <div>
                 <img

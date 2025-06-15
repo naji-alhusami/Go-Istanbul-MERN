@@ -1,11 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router";
 
 import Home from "./components/Home/Home";
-// import Footer from "./components/Footer/Footer";
 import AllUsers from "./components/Users/AllUsers";
 import AllPlaces from "./components/Places/AllPlaces";
 import UserProfile from "./components/ui/UserProfile";
 import Auth from "./components/Auth/Auth";
+// import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
         <Route path="/user" element={<UserProfile />} />
         <Route path="/auth" element={<Auth />} />
       </Routes>
+      {/* <Footer /> */}
     </BrowserRouter>
   );
 }
