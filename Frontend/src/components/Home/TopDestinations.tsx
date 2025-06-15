@@ -22,7 +22,7 @@ const TopDestinations = () => {
   };
 
   const mostVisited = getMostVisitedCities();
-  console.log("Most Visited:", mostVisited);
+  
   return (
     <div className="w-full flex flex-col justify-center items-center">
       <Header
@@ -33,11 +33,12 @@ const TopDestinations = () => {
       {mostVisited.length === 0 ? (
         <h2>No Places Found</h2>
       ) : (
-        <ul className="w-full mx-4 relative flex flex-col md:w-full md:flex-row md:justify-center md:items-center">
+        // <ul className="w-full mx-4 bg-gray-100 relative flex flex-col md:w-full sm:flex-row sm:justify-center sm:items-center">
+          <ul className="w-full mx-4 bg-gray-100 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 lg:px-10">
           {mostVisited.map((city) => (
             <li
               key={city.cid}
-              className="flex flex-col justify-center items-start py-6 px-5 md:w-full"
+              className="flex flex-col justify-center items-start py-6 px-12 sm:w-full sm:px-4"
             >
               <DestinationCard {...city} />
             </li>
