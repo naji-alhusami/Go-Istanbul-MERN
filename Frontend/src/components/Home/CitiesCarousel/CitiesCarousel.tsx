@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 import Header from "../../ui/Header";
@@ -7,6 +8,7 @@ import { CitiesCarouselData } from "./CitiesCarouselData";
 import "./CitiesCarousel.css";
 
 const CitiesCarousel = () => {
+  const navigate = useNavigate();
   const [currentSlideIndex, setCurrentSlideIndex] = useState<number>(0);
 
   useEffect(() => {
@@ -34,13 +36,16 @@ const CitiesCarousel = () => {
           stunning visuals and inspiring insights.
         </p>
         <Button
+          onClick={() => {
+            navigate("/cities");
+          }}
           type="button"
           className="my-8 bg-purple-800 text-white rounded-full px-10 py-4 font-bold"
         >
           Search All Cities
         </Button>
       </div>
-      
+
       {/* Cities Carousel*/}
       <div
         key={currentSlideIndex}
