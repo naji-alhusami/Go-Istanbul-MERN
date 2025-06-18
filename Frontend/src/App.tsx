@@ -5,6 +5,7 @@ import AllUsers from "./components/Users/AllUsers";
 import UserProfile from "./components/ui/UserProfile";
 import Auth from "./components/Auth/Auth";
 // import Cities from "./components/Cities/Cities";
+// import AllPlacess from "./components/Places/AllPlacess";
 import AllPlaces from "./components/Places/AllPlaces";
 // import Footer from "./components/Footer/Footer";
 

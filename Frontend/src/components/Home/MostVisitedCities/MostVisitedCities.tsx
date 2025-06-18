@@ -28,6 +28,7 @@ const MostVisitedCities = () => {
       <Header
         subtitle="Top Shared Destinations"
         title="Discover the Most Visited Cities by Travelers"
+        withBrush={true}
       />
 
       {mostVisited.length === 0 ? (

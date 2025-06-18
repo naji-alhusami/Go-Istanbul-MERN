@@ -60,7 +60,7 @@ const NavbarGuest = ({
                 </Link>
               </li>
               <li className="group relative">
-                <Link to="/users" className="block px-2">
+                <Link to="/places" className="block px-2">
                   Places
                   <span className="absolute left-1/2 bottom-0 h-[2px] w-0 bg-red-500 transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
                 </Link>

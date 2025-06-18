@@ -4,7 +4,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   htmlFor: string;
   label: string;
   type: string;
-  // className: string;
+  className?: string;
   errors: string;
   // errorsMessage: string;
 }
@@ -15,7 +15,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       htmlFor,
       label,
       type,
-      // className,
+      className,
       errors,
       // errorsMessage,
       ...props
@@ -34,7 +34,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         <input
           ref={ref}
           type={type}
-          className={`w-full p-2 rounded border ${
+          className={`${className} w-full p-2 rounded border ${
             errors ? "border-red-500" : "border-gray-300"
           }`}
           {...props}

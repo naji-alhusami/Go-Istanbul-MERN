@@ -28,6 +28,7 @@ const CitiesCarousel = () => {
         <Header
           subtitle="Around the World"
           title="Spotlight on Global Destinations"
+          withBrush={true}
         />
         <p className="px-10 font-bold text-center text-gray-500 max-w-2xl text-lg leading-relaxed lg:text-xl">
           From the romantic streets of Paris to the vibrant rhythm of Rio de
