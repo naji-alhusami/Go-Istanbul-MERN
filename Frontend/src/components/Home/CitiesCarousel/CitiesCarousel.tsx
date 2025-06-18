@@ -37,12 +37,12 @@ const CitiesCarousel = () => {
         </p>
         <Button
           onClick={() => {
-            navigate("/cities");
+            navigate("/places");
           }}
           type="button"
-          className="my-8 bg-purple-800 text-white rounded-full px-10 py-4 font-bold"
+          className="my-8 bg-purple-800 text-white rounded-full px-10 py-4 font-bold cursor-pointer"
         >
-          Search All Cities
+          Search All Places
         </Button>
       </div>
 

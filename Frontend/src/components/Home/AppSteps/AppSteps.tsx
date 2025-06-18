@@ -6,7 +6,7 @@ import RightArrow from "../../../Images/RightArrow.png";
 
 const AppSteps = () => {
   return (
-    <div className="my-32 z-50">
+    <div className="my-52 z-50">
       {/* Header */}
       <Header
         subtitle="A New Way to Travel"

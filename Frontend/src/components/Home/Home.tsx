@@ -1,6 +1,6 @@
 import LandingHome from "./LandingHome/LandingHome";
 import AppSteps from "./AppSteps/AppSteps";
-import MostVisitedCities from "./MostVisitedCities/MostVisitedCities";
+// import MostVisitedCities from "./MostVisitedCities/MostVisitedCities";
 import CitiesCarousel from "./CitiesCarousel/CitiesCarousel";
 
 const Home = () => {
@@ -8,7 +8,7 @@ const Home = () => {
     <div className="md:flex md:flex-col md:h-screen">
       <LandingHome />
       <AppSteps />
-      <MostVisitedCities />
+      {/* <MostVisitedCities /> */}
       <CitiesCarousel />
     </div>
   );
