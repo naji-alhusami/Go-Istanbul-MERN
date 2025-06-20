@@ -26,6 +26,14 @@
   color: white;
 }
 
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* @layer components {
   .change .line1 {
     @apply translate-y-[10px] -rotate-45;

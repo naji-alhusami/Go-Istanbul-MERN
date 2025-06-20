@@ -6,7 +6,18 @@ import Header from "../ui/Header";
 import Input from "../ui/Input";
 import Button from "../ui/Button";
 
+import Filters from "./Filters";
+
 const AllPlaces = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [selected, setSelected] = useState("All");
+
+  const handleSelect = (option: string) => {
+    setSelected(option);
+    setIsOpen(false);
+    // onSelect(option); // callback to parent
+  };
+
   const [isFilters, setIsFilters] = useState<boolean>(false);
 
   return (
@@ -23,16 +34,16 @@ const AllPlaces = () => {
             htmlFor="search"
             type="text"
             label=""
-            placeholder="Waht City Or Place You Searching For?"
+            placeholder="What City Or Place You Searching For?"
             className="rounded-full pr-12 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-red-400"
             errors=""
           />
-          <Button
+          <button
             type="submit"
             className="absolute right-2 top-1/2 transform -translate-y-1/2 text-white rounded-full p-2 bg-purple-800"
           >
             <IoSearchSharp />
-          </Button>
+          </button>
         </div>
         <div className="flex flex-row justify-center items-center">
           <Button
@@ -44,7 +55,17 @@ const AllPlaces = () => {
             <span className="pl-1">Filters</span>
           </Button>
         </div>
-        {isFilters && <div>show Filters</div>}
+        <div className="w-full border-b-1 border-gray-200 mt-2" />
+
+        {isFilters && (
+          <Filters
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
+            selected={selected}
+            handleSelect={handleSelect}
+          />
+        )}
+        {/* {isFilters && <div>show Filters</div>} */}
       </div>
     </>
   );
