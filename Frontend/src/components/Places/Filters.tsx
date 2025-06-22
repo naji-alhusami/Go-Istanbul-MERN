@@ -30,45 +30,48 @@ const Filters = ({
   const listRef = useRef<HTMLUListElement>(null);
 
   const scrollLeft = () => {
-    listRef.current?.scrollBy({ left: -150, behavior: "smooth" });
+    listRef.current?.scrollBy({ left: -200, behavior: "smooth" });
   };
 
   const scrollRight = () => {
-    listRef.current?.scrollBy({ left: 150, behavior: "smooth" });
+    listRef.current?.scrollBy({ left: 200, behavior: "smooth" });
   };
 
   return (
     <>
-      <div className="relative w-full py-2 px-10">
+      <div className="relative py-2 flex flex-col justify-center items-center md:flex-row">
+        <h1>Choose The Continent:</h1>
         {/* Scrollable list */}
-        <ul
-          className="flex flex-row justify-center items-center overflow-x-auto gap-x-6 whitespace-nowrap scrollbar-hide"
-          ref={listRef}
-        >
-          {continents.map((continent) => (
-            <li key={continent} className="font-bold text-sm hover:bg-gray-300 rounded-md cursor-pointer px-2 py-1">
-              {continent}
-            </li>
-          ))}
-        </ul>
-
+        <div className="max-w-full px-10 mx-6">
+          <ul
+            className="flex flex-row items-center md:justify-center gap-x-10 overflow-x-auto whitespace-nowrap scrollbar-hide "
+            ref={listRef}
+          >
+            {continents.map((continent) => (
+              <li
+                key={continent}
+                className="font-bold text-sm hover:bg-gray-300 rounded-md cursor-pointer px-2 py-1"
+              >
+                {continent}
+              </li>
+            ))}
+          </ul>
+        </div>
         {/* Left button */}
-        <div className="absolute left-1 top-4 px-2 -translate-y-1/2 rounded-full bg-white/90 backdrop-blur-sm sm:hidden">
+        <div className="absolute left-2 top-11 -translate-y-1/2 z-10 md:hidden">
           <button
             type="button"
-            className="px-2 bg-white shadow-md rounded-full cursor-pointer"
             onClick={scrollLeft}
+            className="px-3 bg-white shadow-lg rounded-full cursor-pointer border-1 border-gray-300"
           >
             &#8249;
           </button>
         </div>
-
-        {/* Right button */}
-        <div className="absolute right-1 top-4 px-2 -translate-y-1/2 rounded-full bg-white/90 backdrop-blur-sm sm:hidden">
+        <div className="absolute right-2 top-11 -translate-y-1/2 z-10 md:hidden">
           <button
             type="button"
             onClick={scrollRight}
-            className="px-2 bg-white shadow-md rounded-full cursor-pointer"
+            className="px-3 bg-white shadow-lg rounded-full cursor-pointer border-1 border-gray-300"
           >
             &#8250;
           </button>
@@ -110,7 +113,7 @@ const Filters = ({
 
         {/* Dropdown Menu */}
         {isOpen && (
-          <div className="absolute z-10 mt-2 w-40 rounded-xl bg-white shadow-lg border-1 border-gray-200  ring-opacity-5">
+          <div className="absolute z-10 mt-2 w-40 rounded-xl bg-white shadow-lg border-1 border-gray-200 ring-opacity-5">
             <ul className="py-2">
               {filterOptions.map((option) => (
                 <li
