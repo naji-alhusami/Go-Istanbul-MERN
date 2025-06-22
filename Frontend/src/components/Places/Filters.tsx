@@ -39,14 +39,14 @@ const Filters = ({
 
   return (
     <>
-      <div className="relative w-full py-2">
+      <div className="relative w-full py-2 px-10">
         {/* Scrollable list */}
         <ul
-          className="flex flex-row justify-center items-center overflow-x-auto gap-x-6 whitespace-nowrap scrollbar-hide mx-4"
+          className="flex flex-row justify-center items-center overflow-x-auto gap-x-6 whitespace-nowrap scrollbar-hide"
           ref={listRef}
         >
           {continents.map((continent) => (
-            <li key={continent} className="font-bold text-sm ">
+            <li key={continent} className="font-bold text-sm hover:bg-gray-300 rounded-md cursor-pointer px-2 py-1">
               {continent}
             </li>
           ))}
@@ -78,9 +78,9 @@ const Filters = ({
         {/* Dropdown Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-full pl-6 pr-4  border-1 border-gray-200 py-2 rounded-lg shadow-sm bg-white text-sm font-medium hover:bg-gray-50 flex flex-row justify-between items-center"
+          className="w-full pl-6 pr-4 border-1 border-gray-200 py-2 rounded-lg shadow-sm bg-white text-sm font-medium hover:bg-gray-50 flex flex-row justify-between items-center cursor-pointer"
         >
-          {selected}{" "}
+          {selected}
           <AnimatePresence mode="wait">
             {isOpen ? (
               <motion.span
