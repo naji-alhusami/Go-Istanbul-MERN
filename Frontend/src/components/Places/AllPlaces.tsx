@@ -9,13 +9,13 @@ import Button from "../ui/Button";
 import Filters from "./Filters";
 
 const AllPlaces = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState("All");
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [selected, setSelected] = useState<string>("All");
 
   const handleSelect = (option: string) => {
     setSelected(option);
     setIsOpen(false);
-    // onSelect(option); // callback to parent
+    // onSelect(option);
   };
 
   const [isFilters, setIsFilters] = useState<boolean>(false);

@@ -16,16 +16,24 @@ const continents = [
 
 type FiltersProps = {
   isOpen: boolean;
+  setIsOpen: (open: boolean) => void;
   selected: string;
   handleSelect: (option: string) => void;
-  setIsOpen: (open: boolean) => void;
 };
+
+// step by step:
+// 1-choose continents.
+// 2-places/cities/all. ( I will delete this step)
+// 3-then list all the cities in my data.
+// 4-then list all the places in the city selected.
+// 5-the user can select the category of the place.
+// 6-then there is selection to sort the places (most visited places / most rated / ...)
 
 const Filters = ({
   isOpen,
+  setIsOpen,
   selected,
   handleSelect,
-  setIsOpen,
 }: FiltersProps) => {
   const listRef = useRef<HTMLUListElement>(null);
 
@@ -40,7 +48,7 @@ const Filters = ({
   return (
     <>
       <div className="relative py-2 flex flex-col justify-center items-center md:flex-row">
-        <h1>Choose The Continent:</h1>
+        {/* <h1>Choose The Continent:</h1> */}
         {/* Scrollable list */}
         <div className="max-w-full px-10 mx-6">
           <ul
@@ -58,7 +66,7 @@ const Filters = ({
           </ul>
         </div>
         {/* Left button */}
-        <div className="absolute left-2 top-11 -translate-y-1/2 z-10 md:hidden">
+        <div className="absolute left-2 top-11.5 -translate-y-1/2 z-10 md:hidden">
           <button
             type="button"
             onClick={scrollLeft}
@@ -67,7 +75,7 @@ const Filters = ({
             &#8249;
           </button>
         </div>
-        <div className="absolute right-2 top-11 -translate-y-1/2 z-10 md:hidden">
+        <div className="absolute right-2 top-11.5 -translate-y-1/2 z-10 md:hidden">
           <button
             type="button"
             onClick={scrollRight}
@@ -77,7 +85,7 @@ const Filters = ({
           </button>
         </div>
       </div>
-      <div className="relative inline-block text-left p-4">
+      <div className="relative inline-block text-left p-8 w-full">
         {/* Dropdown Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
@@ -113,7 +121,7 @@ const Filters = ({
 
         {/* Dropdown Menu */}
         {isOpen && (
-          <div className="absolute z-10 mt-2 w-40 rounded-xl bg-white shadow-lg border-1 border-gray-200 ring-opacity-5">
+          <div className="z-10 mt-2 w-full rounded-xl bg-white shadow-lg border-1 border-gray-200 ring-opacity-5">
             <ul className="py-2">
               {filterOptions.map((option) => (
                 <li
@@ -133,6 +141,7 @@ const Filters = ({
           </div>
         )}
       </div>
+
     </>
   );
 };
