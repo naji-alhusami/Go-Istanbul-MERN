@@ -10,6 +10,7 @@ const continents: string[] = [
   "Africa",
   "Antarctica",
   "Asia",
+  "Europe",
   "North America",
   "South America",
   "Australia",
@@ -43,24 +44,83 @@ const Filters = () => {
   };
 
   // City Selection:
+  const [isContinentSelected, setContinentIsSelected] = useState<string>("");
   const [expanded, setExpanded] = useState<boolean>(false);
   const maxVisible = 4;
 
-  const cityCounts = TRAVEL_DATA.reduce((acc: Record<string, number>, curr) => {
-    acc[curr.city] = (acc[curr.city] || 0) + 1;
-    return acc;
-  }, {});
+  const citiesInContinent = TRAVEL_DATA.filter(
+    (entry) => entry.continent === isContinentSelected
+  ).map((entry) => entry.city);
+
+  const cityCounts = citiesInContinent.reduce(
+    (acc: Record<string, number>, curr) => {
+      acc[curr] = (acc[curr] || 0) + 1;
+      return acc;
+    },
+    {}
+  );
 
   const sortedCityOptions = Object.entries(cityCounts)
     .map(([city, count]) => ({ city: city, count }))
     .sort((a, b) => b.count - a.count);
 
+  // Place Selection:
+  const [isCitySelected, setIsCitySelected] = useState<string>("");
+
+  const placesInSelectedCity = TRAVEL_DATA.filter(
+    (entry) => entry.city === isCitySelected
+  ).flatMap((entry) => entry.places.map((place) => place.place));
+
+  const placeCounts = placesInSelectedCity.reduce<Record<string, number>>(
+    (acc, place) => {
+      acc[place] = (acc[place] || 0) + 1;
+      return acc;
+    },
+    {}
+  );
+
+  const sortedPlaceOptions = Object.entries(placeCounts)
+    .map(([place, count]) => ({ place, count }))
+    .sort((a, b) => b.count - a.count);
+  // const allPlacesWithCity = TRAVEL_DATA.flatMap((city) =>
+  //   city.places.map((place) => ({
+  //     place: place.place,
+  //     city: city.city,
+  //   }))
+  // );
+  // console.log("allPlacesWithCity:", allPlacesWithCity);
+
+  // const placeCounts = allPlacesWithCity.reduce<
+  //   Record<string, { count: number; city: string }>
+  // >((acc, item) => {
+  //   const key = `${item.place}||${item.city}`;
+  //   if (acc[key]) {
+  //     acc[key].count += 1;
+  //   } else {
+  //     acc[key] = { count: 1, city: item.city };
+  //   }
+
+  //   return acc;
+  // }, {});
+
+  // Convert to array for display
+  // const sortedPlaceOptions = Object.entries(placeCounts)
+  //   .map(([key, value]) => {
+  //     const [place] = key.split("||");
+  //     return {
+  //       place,
+  //       city: value.city,
+  //       count: value.count,
+  //     };
+  //   })
+  //   .sort((a, b) => b.count - a.count);
+  // console.log(sortedPlaceOptions);
   return (
     <>
       {/* 1. Continent Selection */}
       <div className="relative py-2 flex flex-col justify-center items-start md:flex-row">
         <h1 className="pl-12 py-2 font-bold text-purple-900 text-lg">
-          Continent:
+          1. Select the Continent:
         </h1>
         <div className="max-w-full px-10">
           <ul
@@ -70,7 +130,13 @@ const Filters = () => {
             {continents.map((continent) => (
               <li
                 key={continent}
-                className="font-bold text-sm hover:bg-gray-300 rounded-md cursor-pointer px-2 py-1"
+                onClick={() => {
+                  setContinentIsSelected(continent);
+                  setIsCitySelected("");
+                }}
+                className={`font-bold text-sm hover:bg-gray-300 rounded-md cursor-pointer px-2 py-1 ${
+                  isContinentSelected === continent ? "bg-gray-300" : ""
+                }`}
               >
                 {continent}
               </li>
@@ -98,34 +164,63 @@ const Filters = () => {
       </div>
 
       {/* 2.City Selection */}
-      <div className="py-6 px-12">
-        <h1 className="py-2 font-bold text-purple-900 text-lg">City:</h1>
+      {isContinentSelected && (
+        <div className="py-6 px-12">
+          <h1 className="py-2 font-bold text-purple-900 text-lg">
+            2. Cities in {isContinentSelected}:
+          </h1>
 
-        {sortedCityOptions
-          .slice(0, expanded ? sortedCityOptions.length : maxVisible)
-          .map((opt, idx) => (
+          {sortedCityOptions
+            .slice(0, expanded ? sortedCityOptions.length : maxVisible)
+            .map((opt, idx) => (
+              <div key={idx} className="flex items-center space-x-2 mb-1">
+                <input
+                  type="checkbox"
+                  name="city"
+                  value={opt.city}
+                  checked={isCitySelected === opt.city}
+                  onChange={() => setIsCitySelected(opt.city)}
+                  className="h-4 w-4"
+                />
+                <label htmlFor={`city-${idx}`} className="text-md">
+                  {opt.city}{" "}
+                  <span className="text-gray-500">
+                    ({opt.count.toLocaleString()})
+                  </span>
+                </label>
+              </div>
+            ))}
+
+          {sortedCityOptions.length > maxVisible && (
+            <button
+              className="text-blue-600 text-sm mt-1"
+              onClick={() => setExpanded(!expanded)}
+            >
+              <h1 className="cursor-pointer hover:underline">
+                {expanded ? "Show less" : "Show more"}
+              </h1>
+            </button>
+          )}
+        </div>
+      )}
+
+      {/* 2.Place Selection */}
+      {isCitySelected && isContinentSelected && (
+        <div className="py-6 px-12">
+          <h1 className="py-2 font-bold text-purple-900 text-lg">
+            3. Places in {isCitySelected}:
+          </h1>
+
+          {sortedPlaceOptions.map((opt, idx) => (
             <div key={idx} className="flex items-center space-x-2 mb-1">
-              <input type="checkbox" id={`city-${idx}`} className="h-4 w-4" />
-              <label htmlFor={`city-${idx}`} className="text-md">
-                {opt.city}{" "}
-                <span className="text-gray-500">
-                  ({opt.count.toLocaleString()})
-                </span>
+              <input type="checkbox" id={`place-${idx}`} className="h-4 w-4" />
+              <label htmlFor={`place-${idx}`} className="text-md">
+                {opt.place} <span className="text-gray-500">({opt.count})</span>
               </label>
             </div>
           ))}
-
-        {sortedCityOptions.length > maxVisible && (
-          <button
-            className="text-blue-600 text-sm mt-1"
-            onClick={() => setExpanded(!expanded)}
-          >
-            <h1 className="cursor-pointer hover:underline">
-              {expanded ? "Show less" : "Show more"}
-            </h1>
-          </button>
-        )}
-      </div>
+        </div>
+      )}
       {/* Dropdown Button */}
       {/* <div className="relative inline-block text-left p-8 w-full">
         <button

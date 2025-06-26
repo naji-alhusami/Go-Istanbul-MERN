@@ -16,6 +16,7 @@ export type Place = {
 export type City = {
   cid: string;
   creatorId: string;
+  continent: string;
   city: string;
   year: number;
   description: string;
@@ -26,6 +27,7 @@ export const TRAVEL_DATA: City[] = [
   {
     cid: "c1",
     creatorId: "u1",
+    continent: "Europe",
     city: "Berlin",
     year: 2025,
     description: "aaa",
@@ -46,6 +48,7 @@ export const TRAVEL_DATA: City[] = [
   {
     cid: "c2",
     creatorId: "u1",
+    continent: "Europe",
     city: "Istanbul",
     year: 2020,
     description: "aaa",
@@ -88,6 +91,7 @@ export const TRAVEL_DATA: City[] = [
   {
     cid: "c3",
     creatorId: "u2",
+    continent: "Europe",
     city: "Rome",
     year: 2020,
     description: "aaa",
@@ -108,6 +112,7 @@ export const TRAVEL_DATA: City[] = [
   {
     cid: "c4",
     creatorId: "u3",
+    continent: "Europe",
     city: "Istanbul",
     year: 2020,
     description: "aaa",
@@ -128,6 +133,7 @@ export const TRAVEL_DATA: City[] = [
   {
     cid: "c5",
     creatorId: "u1",
+    continent: "Europe",
     city: "Berlin",
     year: 2020,
     description: "aaa",
@@ -148,6 +154,7 @@ export const TRAVEL_DATA: City[] = [
   {
     cid: "c6",
     creatorId: "u2",
+    continent: "Europe",
     city: "Istanbul",
     year: 2020,
     description: "aaa",
@@ -168,14 +175,15 @@ export const TRAVEL_DATA: City[] = [
   {
     cid: "c7",
     creatorId: "u1",
+    continent: "Europe",
     city: "Paris",
     year: 2020,
     description: "aaa",
     places: [
       {
         pid: "p6",
-        place: "Taksim",
-        description: "Taksim",
+        place: "Effil Tour",
+        description: "Effil Tour",
         imageUrl: istanbulImg,
         address: "10 W 34th St, New Work, NY 10",
         coordinates: {
@@ -188,14 +196,15 @@ export const TRAVEL_DATA: City[] = [
   {
     cid: "c8",
     creatorId: "u2",
+    continent: "Europe",
     city: "Paris",
     year: 2020,
     description: "aaa",
     places: [
       {
         pid: "p6",
-        place: "Taksim",
-        description: "Taksim",
+        place: "Effil Tour",
+        description: "Effil Tour",
         imageUrl: istanbulImg,
         address: "10 W 34th St, New Work, NY 10",
         coordinates: {
@@ -208,14 +217,15 @@ export const TRAVEL_DATA: City[] = [
   {
     cid: "c9",
     creatorId: "u3",
+    continent: "Europe",
     city: "Paris",
     year: 2020,
     description: "aaa",
     places: [
       {
         pid: "p6",
-        place: "Taksim",
-        description: "Taksim",
+        place: "shanzilzi",
+        description: "shanzilzi",
         imageUrl: istanbulImg,
         address: "10 W 34th St, New Work, NY 10",
         coordinates: {
@@ -228,7 +238,29 @@ export const TRAVEL_DATA: City[] = [
   {
     cid: "c10",
     creatorId: "u3",
+    continent: "Europe",
     city: "Brussel",
+    year: 2020,
+    description: "aaa",
+    places: [
+      {
+        pid: "p6",
+        place: "plats",
+        description: "plats",
+        imageUrl: istanbulImg,
+        address: "10 W 34th St, New Work, NY 10",
+        coordinates: {
+          lat: 40.7484405,
+          lng: -73.9878584,
+        },
+      },
+    ],
+  },
+  {
+    cid: "c11",
+    creatorId: "u1",
+    continent: "Europe",
+    city: "Istanbul",
     year: 2020,
     description: "aaa",
     places: [
@@ -246,16 +278,17 @@ export const TRAVEL_DATA: City[] = [
     ],
   },
   {
-    cid: "c11",
+    cid: "c12",
     creatorId: "u1",
-    city: "Istanbul",
+    continent: "Asia",
+    city: "Cairo",
     year: 2020,
     description: "aaa",
     places: [
       {
         pid: "p6",
-        place: "Taksim",
-        description: "Taksim",
+        place: "Neel River",
+        description: "Neel River",
         imageUrl: istanbulImg,
         address: "10 W 34th St, New Work, NY 10",
         coordinates: {
