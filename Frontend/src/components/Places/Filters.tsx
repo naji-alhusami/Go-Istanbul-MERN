@@ -1,11 +1,12 @@
 import { useRef, useState } from "react";
+import { TRAVEL_DATA } from "../Lib/Types/CityType";
 // import { AnimatePresence, motion } from "framer-motion";
 // import { IoMdArrowDown } from "react-icons/io";
 // import { IoArrowUpOutline } from "react-icons/io5";
 
 // const filterOptions = ["All", "Cities", "Places"];
 
-const continents = [
+const continents: string[] = [
   "Africa",
   "Antarctica",
   "Asia",
@@ -14,22 +15,6 @@ const continents = [
   "Australia",
 ];
 
-const filters = {
-  Subject: [
-    { label: "Business", count: 4075 },
-    { label: "Computer Science", count: 3309 },
-    { label: "Information Technology", count: 2549 },
-    { label: "Data Science", count: 1871 },
-    // more...
-  ],
-  Language: [
-    { label: "English", count: 12328 },
-    { label: "Spanish", count: 6515 },
-    { label: "French", count: 5498 },
-    { label: "Arabic", count: 5425 },
-    // more...
-  ],
-};
 // type FiltersProps = {
 //   isOpen: boolean;
 //   setIsOpen: (open: boolean) => void;
@@ -46,14 +31,7 @@ const filters = {
 // 6-then there is selection to sort the places (most visited places / most rated / ...)
 
 const Filters = () => {
-  const [isContinentSelected, setIsContinentSelected] =
-    useState<boolean>(false);
-  const [expanded, setExpanded] = useState(false);
-  const title = "Subject";
-  const maxVisible = 4;
-  const visibleOptions = expanded
-    ? filters.Subject
-    : filters.Subject.slice(0, maxVisible);
+  // Continent Scroller:
   const listRef = useRef<HTMLUListElement>(null);
 
   const scrollLeft = () => {
@@ -64,12 +42,25 @@ const Filters = () => {
     listRef.current?.scrollBy({ left: 200, behavior: "smooth" });
   };
 
+  // City Selection:
+  const [expanded, setExpanded] = useState<boolean>(false);
+  const maxVisible = 4;
+
+  const cityCounts = TRAVEL_DATA.reduce((acc: Record<string, number>, curr) => {
+    acc[curr.city] = (acc[curr.city] || 0) + 1;
+    return acc;
+  }, {});
+
+  const sortedCityOptions = Object.entries(cityCounts)
+    .map(([city, count]) => ({ city: city, count }))
+    .sort((a, b) => b.count - a.count);
+
   return (
     <>
       {/* 1. Continent Selection */}
       <div className="relative py-2 flex flex-col justify-center items-start md:flex-row">
         <h1 className="pl-12 py-2 font-bold text-purple-900 text-lg">
-          1. Select The Continent:
+          Continent:
         </h1>
         <div className="max-w-full px-10">
           <ul
@@ -79,7 +70,6 @@ const Filters = () => {
             {continents.map((continent) => (
               <li
                 key={continent}
-                onClick={() => setIsContinentSelected(true)}
                 className="font-bold text-sm hover:bg-gray-300 rounded-md cursor-pointer px-2 py-1"
               >
                 {continent}
@@ -108,36 +98,34 @@ const Filters = () => {
       </div>
 
       {/* 2.City Selection */}
-      {isContinentSelected && (
-        <div className="py-6 px-12">
-          <h1 className="py-2 font-bold text-purple-900 text-lg">
-            2. Select The City:
-          </h1>
-          {visibleOptions.map((opt, idx) => (
+      <div className="py-6 px-12">
+        <h1 className="py-2 font-bold text-purple-900 text-lg">City:</h1>
+
+        {sortedCityOptions
+          .slice(0, expanded ? sortedCityOptions.length : maxVisible)
+          .map((opt, idx) => (
             <div key={idx} className="flex items-center space-x-2 mb-1">
-              <input
-                type="checkbox"
-                id={`${title}-${idx}`}
-                className="h-4 w-4"
-              />
-              <label htmlFor={`${title}-${idx}`} className="text-sm">
-                {opt.label}{" "}
+              <input type="checkbox" id={`city-${idx}`} className="h-4 w-4" />
+              <label htmlFor={`city-${idx}`} className="text-md">
+                {opt.city}{" "}
                 <span className="text-gray-500">
                   ({opt.count.toLocaleString()})
                 </span>
               </label>
             </div>
           ))}
-          {filters.Subject.length > maxVisible && (
-            <button
-              className="text-blue-600 text-sm mt-1"
-              onClick={() => setExpanded(!expanded)}
-            >
+
+        {sortedCityOptions.length > maxVisible && (
+          <button
+            className="text-blue-600 text-sm mt-1"
+            onClick={() => setExpanded(!expanded)}
+          >
+            <h1 className="cursor-pointer hover:underline">
               {expanded ? "Show less" : "Show more"}
-            </button>
-          )}
-        </div>
-      )}
+            </h1>
+          </button>
+        )}
+      </div>
       {/* Dropdown Button */}
       {/* <div className="relative inline-block text-left p-8 w-full">
         <button
