@@ -45,8 +45,9 @@ const Filters = () => {
 
   // City Selection:
   const [isContinentSelected, setContinentIsSelected] = useState<string>("");
-  const [expanded, setExpanded] = useState<boolean>(false);
-  const maxVisible = 4;
+  const [isCitiesExpanded, setIsCitiesExpanded] = useState<boolean>(false);
+  const [isPlacesExpanded, setIsPlacesExpanded] = useState<boolean>(false);
+  const maxVisible = 2;
 
   const citiesInContinent = TRAVEL_DATA.filter(
     (entry) => entry.continent === isContinentSelected
@@ -171,7 +172,7 @@ const Filters = () => {
           </h1>
 
           {sortedCityOptions
-            .slice(0, expanded ? sortedCityOptions.length : maxVisible)
+            .slice(0, isCitiesExpanded ? sortedCityOptions.length : maxVisible)
             .map((opt, idx) => (
               <div key={idx} className="flex items-center space-x-2 mb-1">
                 <input
@@ -194,10 +195,10 @@ const Filters = () => {
           {sortedCityOptions.length > maxVisible && (
             <button
               className="text-blue-600 text-sm mt-1"
-              onClick={() => setExpanded(!expanded)}
+              onClick={() => setIsCitiesExpanded(!isCitiesExpanded)}
             >
               <h1 className="cursor-pointer hover:underline">
-                {expanded ? "Show less" : "Show more"}
+                {isCitiesExpanded ? "Show less" : "Show more"}
               </h1>
             </button>
           )}
@@ -211,14 +212,46 @@ const Filters = () => {
             3. Places in {isCitySelected}:
           </h1>
 
-          {sortedPlaceOptions.map((opt, idx) => (
+          {/* {sortedPlaceOptions.map((opt, idx) => (
             <div key={idx} className="flex items-center space-x-2 mb-1">
               <input type="checkbox" id={`place-${idx}`} className="h-4 w-4" />
               <label htmlFor={`place-${idx}`} className="text-md">
                 {opt.place} <span className="text-gray-500">({opt.count})</span>
               </label>
             </div>
-          ))}
+          ))} */}
+
+          {sortedPlaceOptions
+            .slice(0, isPlacesExpanded ? sortedPlaceOptions.length : maxVisible)
+            .map((opt, idx) => (
+              <div key={idx} className="flex items-center space-x-2 mb-1">
+                <input
+                  type="checkbox"
+                  name="city"
+                  value={opt.place}
+                  checked={isCitySelected === opt.place}
+                  onChange={() => setIsCitySelected(opt.place)}
+                  className="h-4 w-4"
+                />
+                <label htmlFor={`city-${idx}`} className="text-md">
+                  {opt.place}{" "}
+                  <span className="text-gray-500">
+                    ({opt.count.toLocaleString()})
+                  </span>
+                </label>
+              </div>
+            ))}
+
+          {sortedPlaceOptions.length > maxVisible && (
+            <button
+              className="text-blue-600 text-sm mt-1"
+              onClick={() => setIsPlacesExpanded(!isPlacesExpanded)}
+            >
+              <h1 className="cursor-pointer hover:underline">
+                {isPlacesExpanded ? "Show less" : "Show more"}
+              </h1>
+            </button>
+          )}
         </div>
       )}
       {/* Dropdown Button */}
