@@ -2,10 +2,6 @@ import { useRef, useState } from "react";
 import { TRAVEL_DATA } from "../Lib/Types/CityType";
 import { AnimatePresence, motion } from "framer-motion";
 import { MoveDown, MoveUp } from "lucide-react";
-// import { IoMdArrowDown } from "react-icons/io";
-// import { IoArrowUpOutline } from "react-icons/io5";
-
-// const filterOptions = ["All", "Cities", "Places"];
 
 const continents: string[] = [
   "All Continents",
@@ -28,14 +24,13 @@ const continents: string[] = [
 const Filters = () => {
   // Continent Selection:
   const listRef = useRef<HTMLUListElement>(null);
-  const [isContinentSelected, setContinentIsSelected] =
-    useState<string>("All Continents");
+  const [isContinentSelected, setContinentIsSelected] = useState<string>("");
 
-  console.log(isContinentSelected);
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
 
   const selectContinentHandler = (continent: string) => {
     setContinentIsSelected(continent);
+    setSelectedCities([]);
     setIsDropdownOpen(false);
   };
 
@@ -69,10 +64,10 @@ const Filters = () => {
     .sort((a, b) => b.count - a.count);
 
   // Place Selection:
-  const [isCitySelected, setIsCitySelected] = useState<string>("");
+  const [selectedCities, setSelectedCities] = useState<string[]>([]);
 
   const placesInSelectedCitySet = new Set(
-    TRAVEL_DATA.filter((entry) => entry.city === isCitySelected).flatMap(
+    TRAVEL_DATA.filter((entry) => selectedCities.includes(entry.city)).flatMap(
       (entry) => entry.places.map((place) => place.place)
     )
   );
@@ -107,7 +102,7 @@ const Filters = () => {
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             className="w-full px-4 border-1 border-gray-200 py-2 rounded-lg shadow-sm bg-white text-sm font-medium hover:bg-gray-50 flex flex-row justify-between items-center cursor-pointer"
           >
-            {isContinentSelected}
+            {isContinentSelected || "-- Choose Continent --"}
             <AnimatePresence mode="wait">
               {isDropdownOpen ? (
                 <motion.span
@@ -171,7 +166,7 @@ const Filters = () => {
                 key={continent}
                 onClick={() => {
                   setContinentIsSelected(continent);
-                  setIsCitySelected("");
+                  setSelectedCities([]);
                 }}
                 className={`font-bold text-sm hover:bg-gray-300 rounded-md cursor-pointer px-2 py-1 ${
                   isContinentSelected === continent ? "bg-gray-300" : ""
@@ -192,8 +187,9 @@ const Filters = () => {
           .slice(0, isCitiesExpanded ? sortedAllCityOptions.length : maxVisible)
           .map((opt, idx) => {
             const isDisabled =
-              isContinentSelected !== "All Continents" &&
-              !citiesInSelectedContinent.has(opt.city);
+              isContinentSelected === "" ||
+              (isContinentSelected !== "All Continents" &&
+                !citiesInSelectedContinent.has(opt.city));
 
             return (
               <div key={idx} className="flex items-center space-x-2 mb-1">
@@ -201,8 +197,14 @@ const Filters = () => {
                   type="checkbox"
                   name="city"
                   value={opt.city}
-                  checked={isCitySelected === opt.city}
-                  onChange={() => setIsCitySelected(opt.city)}
+                  checked={selectedCities.includes(opt.city)}
+                  onChange={() => {
+                    setSelectedCities((prev) =>
+                      prev.includes(opt.city)
+                        ? prev.filter((c) => c !== opt.city)
+                        : [...prev, opt.city]
+                    );
+                  }}
                   disabled={isDisabled}
                   className={`h-4 w-4 ${
                     isDisabled ? "opacity-50 cursor-not-allowed" : ""
@@ -238,16 +240,6 @@ const Filters = () => {
       {/* 2.Place Selection */}
       <div className="py-6 px-12">
         <h1 className="py-2 font-bold text-purple-900 text-lg">3. Places:</h1>
-
-        {/* {sortedPlaceOptions.map((opt, idx) => (
-            <div key={idx} className="flex items-center space-x-2 mb-1">
-              <input type="checkbox" id={`place-${idx}`} className="h-4 w-4" />
-              <label htmlFor={`place-${idx}`} className="text-md">
-                {opt.place} <span className="text-gray-500">({opt.count})</span>
-              </label>
-            </div>
-          ))} */}
-
         {sortedAllPlaceOptions
           .slice(
             0,
@@ -255,7 +247,7 @@ const Filters = () => {
           )
           .map((opt, idx) => {
             const isPlaceDisabled =
-              isCitySelected !== "All Cities" &&
+              selectedCities.length === 0 ||
               !placesInSelectedCitySet.has(opt.place);
 
             return (
